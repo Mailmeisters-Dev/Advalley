@@ -46,22 +46,22 @@
     </div>
     <main class="main">
       <div class="container container__lhc">
+        [loop name="intro_image" min="0"]
         <div class="main__image p-b-48">
           <div class="main__image-background">
-            <h1 class="main__h1">Wijzig uw nieuwsbrief voorkeuren</h1>
+            <h1 class="main__h1">[text name="title" editor="poor"]</h1>
           </div>
         </div>
+        [/loop]
         <div class="row intro-text p-b-40">
-          <h2 class="p-b-16">Jammer dat u onze nieuwsbrief niet meer wilt ontvangen</h3>
-          <span>
-            U gaat <b>de beste aanbiedingen</b> mislopen. Weet u zeker dat u dit wilt? <br>
-            Kies er hieronder bijvoorbeeld voor om minder vaak de nieuwsbrief te ontvangen!
-          </span>
+          <h2 class="p-b-16">[text name="title" editor="poor"]</h3>
+          <span>[text name="text" editor="poor"]</span>
         </div>
       </div>
       <div class="container container__lhc">
         <div class="main__form">
-          <form>
+          [loop name="form" min="0"]
+          [text name="form_generated_code"]
             <div class="row p-b-32">
               <h3 class="p-b-16">Nieuwsbrief frequentie</h3>
               <div class="p-b-8">
@@ -117,9 +117,13 @@
               </div>
             </div>
             <div class="form__submit">
-              <input class="submit__button" type="button" value="Voorkeuren wijzigen" name="formSubmit">
+              <input class="submit__button" type="button" value="[text name='button_text']" name="formSubmit">
             </div>
           </form>
+            [loop name="form_script" min="0"]
+              [text name="script" editor="poor"]
+            [/loop]
+          [/loop]
         </div>
       </div>
     </main>
