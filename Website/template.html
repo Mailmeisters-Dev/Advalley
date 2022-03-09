@@ -11,13 +11,14 @@
     <title>De nummer 1 in luxe arrangementen van 4- en 5-sterren hotels</title>
     <link rel="icon" href="https://luxuryhotelcompany.com/favicon-new.ico">
 
-    
-    <link rel="stylesheet" href="stylesheet.css"> 
-
     <!-- Load custom Google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- Load Font Awesome icons -->
+    <script src="https://kit.fontawesome.com/9a0bea37ea.js" crossorigin="anonymous"></script>
+
   </head>
   <body>
     <header class="header">
@@ -62,35 +63,38 @@
         <div class="main__form">
           [loop name="form" min="0"]
           [text name="form_generated_code"]
+          [loop name="form_fields_row" min="0"]
+          {capture assign="tijdelijkePauze"}[text name="tijdelijke_pauze" editor="poor"]{/capture}
             <div class="row p-b-32">
-              <h3 class="p-b-16">Nieuwsbrief frequentie</h3>
+              [loop name="title" min="0"]
+                <h3 class="p-b-16">[text name="title" editor="poor"]</h3>
+              [/loop]
+              [loop name="title_description" min="0"]
+                <h3 class="p-b-8">[text name="title" editor="poor"]</h3>
+                <div class="p-b-16">
+                  [text name="description" editor="poor"]
+                </div>
+              [/loop]
+              [loop name="radio_buttons" min="0"]
+              {capture assign="dbField"}[text name="name_dbfield" editor="poor"]{/capture}
+              [loop name="radio" min="0"]
+              {capture assign="radioId"}[text name="radio_id" editor="poor"]{/capture}
+              {capture assign="radioValue"}[text name="radio_value"]{/capture}
               <div class="p-b-8">
-                <input class="radio" type="radio" name="dbfield" id="frequency-dagelijks">
-                <label class="form-check-label" for="frequency-dagelijks">
-                  Dagelijks
+                <input class="radio" type="radio" name="{$dbField}" id="{$radioId}" value="{$radioValue}">
+                <label class="form-check-label" for="{$radioId}">
+                  [text name="name_field" editor="poor"]
                 </label>
               </div>
-              <div class="p-b-8">
-                <input class="radio" type="radio" name="dbfield" id="frequency-wekelijks">
-                <label class="form-check-label" for="frequency-wekelijks">
-                  Wekelijks
-                </label>
-              </div>
-              <div class="p-b-8">
-                <input class="radio" type="radio" name="dbfield" id="frequency-maandelijks">
-                <label class="form-check-label" for="frequency-maandelijks">
-                  Maandelijks
-                </label>
-              </div>
-              <div class="p-b-8">
-                <input class="radio" type="radio" name="dbfield" id="frequency-geen">
-                <label class="form-check-label" for="frequency-geen">
-                  Geen
-                </label>
-              </div>
+              [/loop]
+              [text name="extra_text" editor="poor"]
+              [/loop]
             </div>
-            <div class="row p-b-48">
-              <h3 class="p-b-8">Of kies voor een tijdelijke pauze</h3>
+            <div class="row p-b-32 js-pause-container hide">
+              <div class="pause__title">
+                <i class="fa-solid fa-circle-exclamation"></i>
+                <h3 class="p-b-8">Weet u het zeker? U kunt ook voor een tijdelijke pauze kiezen!</h3>
+              </div>
               <div class="p-b-16">
                 Zo ontvangt u automatisch weer <b>de beste aanbiedingen</b> op het moment dat u dat wilt.
               </div>
@@ -116,7 +120,8 @@
                 Klik <u>hier</u> om uw tijdelijke pauze keuze te herstellen
               </div>
             </div>
-            <div class="form__submit">
+            [/loop]
+            <div class="form__submit p-t-8">
               <input class="submit__button" type="button" value="[text name='button_text']" name="formSubmit">
             </div>
           </form>
@@ -176,5 +181,106 @@
 
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <!-- Retrieve current frequency as hidden and radio element -->
+    <input id="js-Initial-frequency-hidden" type="hidden" value="Dagelijks"/>
+    <input id="js-Initial-frequency-radio" type="radio" class="hide" name="dbfield50" value="Dagelijks"/>
+
+    [literal]
+    <script type="text/javascript">
+      var InitialFrequencyValue = document.getElementById('js-Initial-frequency-hidden').value;
+    </script>
+
+    <!-- Open / close pause element and reset checked radios -->
+    <script type="text/javascript">
+      // Retrieve frequency and pause radios
+      var frequencyRadios = document.querySelectorAll('input[name="dbfield50"]');
+      var pauseRadios = document.querySelectorAll('input[name="dbfield1"]');
+
+      // Retrieve button to change innerText later
+      var submitButton = document.querySelector('.submit__button');
+
+      // Create array from frequencyRadios so we can get the specific, needed radio for functions
+      var frequencyRadiosArray = Array.from(frequencyRadios);
+
+      // This is 'Geen' radio
+      var openPauseElement = frequencyRadiosArray[frequencyRadiosArray.length -2];
+
+      // All radio's but 'Geen'
+      var closePauseElement = frequencyRadiosArray.slice(0, -1);
+
+      // The pause element to show or hide
+      var pauseElement = document.querySelector('.js-pause-container');
+
+      // Called from clicking frequency radios
+      function hideShowPauseElement(action) {
+        if (action === 'hide') {
+          pauseElement.setAttribute('class', 'row p-b-32 js-pause-container hide');
+        } else {
+          pauseElement.setAttribute('class', 'row p-b-32 js-pause-container');
+        }
+      }
+
+      function resetPauseRadios() {
+        pauseRadios.forEach(function (radio) {
+          radio.checked = false;
+        });
+      };
+
+      function resetFrequencyRadios() {
+        frequencyRadios.forEach(function (radio) {
+          radio.checked = false;
+        });
+      }
+
+      // We created a dummy, hidden checkbox with the Initial frequency which is checked when customer selects a temporary pause. When customer then selects a frequency radio we uncheck this
+      // Retrieve the hidden radio
+      var hiddenInitialFrequencyRadio = frequencyRadiosArray[frequencyRadiosArray.length -1];
+
+      function checkInitialFrequency() {
+        hiddenInitialFrequencyRadio.checked = true;
+      }
+
+      function uncheckInitialFrequency() {
+        hiddenInitialFrequencyRadio.checked = false;
+      }
+
+      // Call function to hide or show pause element based on which radio is clicked
+      frequencyRadios.forEach(function (radio, index) {
+        radio.addEventListener('click', function() {
+          if (frequencyRadios[index] == openPauseElement) {
+            hideShowPauseElement('show');
+          } else {
+            hideShowPauseElement('hide');
+          }
+          // If customer clicks any frequency radio: uncheck all pause radios
+          resetPauseRadios();
+          // If customer clicks any frequency radio: uncheck the Initial frequency radio
+          uncheckInitialFrequency();
+          submitButton.value = 'Afmelden voor nieuwsbrief';
+        })
+      });
+
+      // If customer clicks any pause radio: change button text, uncheck all frequency radios and check the Initital frequency radio
+      pauseRadios.forEach(function (radio) {
+        radio.addEventListener('click', function() {
+          submitButton.value = 'Tijdelijke pauze bevestigen';
+          resetFrequencyRadios();
+          checkInitialFrequency();
+        });
+      });
+
+      // If customer clicks reset pause text under the radios: change button text, set frequency to 'Dagelijks', uncheck all pause radios and uncheck the Initial frequency radio
+      var resetPause = document.querySelector('.js-pause-reset');
+      resetPause.addEventListener('click', function() {
+        submitButton.value = 'Afmelden voor nieuwsbrief';
+        frequencyRadiosArray[0].checked = true;
+        hideShowPauseElement('hide');
+        resetPauseRadios();
+        uncheckInitialFrequency();
+      });
+      
+    </script>
+    [/literal]
   </body>
 </html>
