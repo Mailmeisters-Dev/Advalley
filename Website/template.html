@@ -249,14 +249,15 @@
         radio.addEventListener('click', function() {
           if (frequencyRadios[index] == openPauseElement) {
             hideShowPauseElement('show');
+            submitButton.value = 'Afmelden voor nieuwsbrief';
           } else {
             hideShowPauseElement('hide');
+            submitButton.value = 'Voorkeuren wijzigen';
           }
           // If customer clicks any frequency radio: uncheck all pause radios
           resetPauseRadios();
           // If customer clicks any frequency radio: uncheck the Initial frequency radio
           uncheckInitialFrequency();
-          submitButton.value = 'Afmelden voor nieuwsbrief';
         })
       });
 
@@ -272,7 +273,7 @@
       // If customer clicks reset pause text under the radios: change button text, set frequency to 'Dagelijks', uncheck all pause radios and uncheck the Initial frequency radio
       var resetPause = document.querySelector('.js-pause-reset');
       resetPause.addEventListener('click', function() {
-        submitButton.value = 'Afmelden voor nieuwsbrief';
+        submitButton.value = 'Voorkeuren wijzigen';
         frequencyRadiosArray[0].checked = true;
         hideShowPauseElement('hide');
         resetPauseRadios();
