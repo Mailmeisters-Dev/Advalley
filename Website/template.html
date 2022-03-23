@@ -193,12 +193,17 @@
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
-    <!-- Retrieve current frequency as hidden radio element -->
-    <input id="js-Initial-frequency-hidden" type="hidden" value="{$profile.EM_Frequency}"/>
+    <!-- Retrieve current frequency as hidden element -->
+    <input id="js-initial-frequency-hidden" type="hidden" value="{$profile.EM_Frequency}"/>
+
+    
+    {if $smarty.server.REQUEST_URI|strstr:'uitschrijven'}
+    <!-- Only add scripts to page if URL contains 'uitschrijven' with above Smarty.
+    This way there will be no errors in the JavaScript if certain elements don't exist on page -->
 
     [literal]
     <script type="text/javascript">
-      var InitialFrequencyValue = document.getElementById('js-Initial-frequency-hidden').value;
+      var initialFrequencyValue = document.getElementById('js-initial-frequency-hidden').value;
     </script>
 
     <!-- Open / close pause element and reset checked radios -->
@@ -255,20 +260,34 @@
         hiddenInitialFrequencyRadio.checked = false;
       }
 
+      // If customer clicks 'Geen' radio: set status to 'Unsubscribed' otherwise set to 'Subscribed'
+      var hiddenStatusValue = document.getElementById('js-initial-status-hidden');
+
+      function setStatusUnsubscribed() {
+        hiddenStatusValue.value = 'Unsubscribed';
+      }
+
+      function setStatusSubscribed() {
+        hiddenStatusValue.value = 'Subscribed';
+      }
+
       // Call function to hide or show pause element based on which radio is clicked
       frequencyRadios.forEach(function (radio, index) {
         radio.addEventListener('click', function() {
+          // Check if customer clicks frequency radio 'Geen' or a different one
           if (frequencyRadios[index] == openPauseElement) {
             hideShowPauseElement('show');
             submitButton.value = 'Afmelden voor nieuwsbrief';
+            setStatusUnsubscribed();
           } else {
             hideShowPauseElement('hide');
             submitButton.value = 'Voorkeuren wijzigen';
+            setStatusSubscribed();
           }
           // If customer clicks any frequency radio: uncheck all pause radios
           resetPauseRadios();
           // If customer clicks any frequency radio: uncheck the Initial frequency radio
-          uncheckInitialFrequency();
+          uncheckInitialFrequency(); 
         })
       });
 
@@ -278,6 +297,7 @@
           submitButton.value = 'Tijdelijke pauze bevestigen';
           resetFrequencyRadios();
           checkInitialFrequency();
+          setStatusSubscribed();
         });
       });
 
@@ -285,13 +305,15 @@
       var resetPause = document.querySelector('.js-pause-reset');
       resetPause.addEventListener('click', function() {
         submitButton.value = 'Voorkeuren wijzigen';
-        frequencyRadiosArray[0].checked = true;
+        frequencyRadiosArray[1].checked = true;
         hideShowPauseElement('hide');
         resetPauseRadios();
         uncheckInitialFrequency();
+        setStatusSubscribed();
       });
       
     </script>
     [/literal]
+    {/if}
   </body>
 </html>
