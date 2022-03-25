@@ -90,6 +90,7 @@
               [text name="extra_text" editor="poor"]
               [/loop]
             </div>
+            {if $tijdelijkePauze != ''}
             <div class="row p-b-32 js-pause-container hide">
               <div class="pause__title">
                 <i class="fa-solid fa-circle-exclamation"></i>
@@ -120,6 +121,7 @@
                 Klik <u>hier</u> om uw tijdelijke pauze keuze te herstellen
               </div>
             </div>
+            {/if}
             [/loop]
             <div class="form__submit p-t-8">
               <input class="submit__button" type="submit" value="[text name='button_text']" name="submit">
