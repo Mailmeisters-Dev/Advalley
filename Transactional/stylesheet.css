@@ -1,98 +1,151 @@
-<head><style type="text/css">
-body {
-    Margin: 0;
+<head><style type="text/css">body {
+  Margin: 0;
 }
 
 a {
-    color: #000;
-    text-decoration: underline;
+  color: #000;
+  text-decoration: underline;
 }
 
 @media (max-width: 600px) {
-    .m-hide {
-        display: none !important;
-        max-height: 0 !important;
-        visibility: hidden !important;
-    }
-    .m-show {
-        display: block !important;
-        max-height: none !important;
-        visibility: visible !important;  
-    }
-    .m-width-100 {
-        width: 100% !important;
-    }
-    .m-display-block {
-        display: block !important;   
-    }
-    .m-footer-column-100 {
-      width: 100% !important;
-      display: block !important;
-      padding-left: 24px !important;
-      padding-right: 24px !important;
-      Margin: 0 auto !important;
-    }
-    .m-float-none {
-      float: none !important;
-    }
-    .m-text-center {
-      text-align: center !important;
-    }
-    .m-h1-small {
-        font-size: 32px !important;
-        line-height: 40px !important;
-    }
-    .m-p-0 {
-        padding: 0 !important;
-    }
-    .m-p-b-8 {
-        padding-bottom: 8px !important;
-    }
-    .m-p-b-20 {
-        padding-bottom: 20px !important;
-    }
-    .m-p-b-32 {
-        padding-bottom: 32px !important;
-    }
-    .m-p-t-48 {
-        padding-top: 48px !important;
-    }
-    .m-p-r-0 {
-        padding-right: 0 !important;
-    }
-    .m-p-l-20 {
-        padding-left: 20px !important;
-    }
-    .m-p-r-20 {
-        padding-right: 20px !important;
-    }
-    .m-p-20 {
-      padding: 20px !important;
-    }
-    .m-bgimage-center {
-      background-position: bottom center !important;
-      height: 275px !important;
-      width: auto !important;
-      background-image: url(http://cdn.mcauto-images-production.sendgrid.net/496b953602f1314f/ae8528ed-32f8-473f-9d25-8fde369afb9f/640x275.jpg) !important;
-    }
-    .m-bgimage-center-happytravels {
-      background-position: bottom center !important;
-      height: 275px !important;
-      width: auto !important;
-      background-image: url(http://cdn.mcauto-images-production.sendgrid.net/496b953602f1314f/3f625a6a-830b-49e2-9fb0-5a8fdcbc0670/600x275.jpg) !important;
-    }
-    .m-height-105 {
-      height: 105px !important;
-      line-height: 105px !important;
-    }
+  .m-hide {
+    display: none !important;
+    max-height: 0 !important;
+    visibility: hidden !important;
+  }
+
+  .m-show {
+    display: block !important;
+    max-height: none !important;
+    visibility: visible !important;
+  }
+
+  .m-width-100 {
+    width: 100% !important;
+  }
+
+  .m-display-block {
+    display: block !important;
+  }
+
+  .m-footer-column-100 {
+    width: 100% !important;
+    display: block !important;
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+    Margin: 0 auto !important;
+  }
+
+  .m-float-none {
+    float: none !important;
+  }
+
+  .m-text-center {
+    text-align: center !important;
+  }
+
+  .m-h1-small {
+    font-size: 32px !important;
+    line-height: 40px !important;
+  }
+
+  .m-p-0 {
+    padding: 0 !important;
+  }
+
+  .m-p-b-8 {
+    padding-bottom: 8px !important;
+  }
+
+  .m-p-b-20 {
+    padding-bottom: 20px !important;
+  }
+
+  .m-p-b-24 {
+    padding-bottom: 24px !important;
+  }
+
+  .m-p-b-32 {
+    padding-bottom: 32px !important;
+  }
+
+  .m-p-b-40 {
+    padding-bottom: 40px !important;
+  }
+
+  .m-p-t-32 {
+    padding-top: 32px !important;
+  }
+
+  .m-p-t-48 {
+    padding-top: 48px !important;
+  }
+
+  .m-p-l-0 {
+    padding-left: 0 !important;
+  }
+
+  .m-p-r-0 {
+    padding-right: 0 !important;
+  }
+
+  .m-p-l-20 {
+    padding-left: 20px !important;
+  }
+
+  .m-p-r-20 {
+    padding-right: 20px !important;
+  }
+
+  .m-p-20 {
+    padding: 20px !important;
+  }
+
+  .m-bgimage-center {
+    background-position: bottom center !important;
+    height: 275px !important;
+    width: auto !important;
+    background-image: url(http://cdn.mcauto-images-production.sendgrid.net/496b953602f1314f/ae8528ed-32f8-473f-9d25-8fde369afb9f/640x275.jpg) !important;
+  }
+
+  .m-bgimage-center-happytravels {
+    background-position: bottom center !important;
+    height: 275px !important;
+    width: auto !important;
+    background-image: url(http://cdn.mcauto-images-production.sendgrid.net/496b953602f1314f/3f625a6a-830b-49e2-9fb0-5a8fdcbc0670/600x275.jpg) !important;
+  }
+
+  .m-height-105 {
+    height: 105px !important;
+    line-height: 105px !important;
+  }
+
+  .m-border-r-0 {
+    border-right: none !important;
+  }
+
+  .m-border-b-1 {
+    border-bottom: 1px solid #DADBDB;
+  }
 }
 
-<!--[if mso]>
+< !--[if mso]>body,
+div,
+table,
+td,
+font,
+a,
+strong,
+span {
+  font-family: Arial, sans-serif !important;
+}
 
-      body, div, table, td, font, a, strong, span {font-family:Arial, sans-serif !important;}
-      .mso-font-black {font-family:Arial Black, sans-serif !important;}
-      .modules-container {max-width: 600px !important;}
+.mso-font-black {
+  font-family: Arial Black, sans-serif !important;
+}
 
-<![endif]-->
+.modules-container {
+  max-width: 600px !important;
+}
 
-</style></head>
+< ![endif]--></style></head>

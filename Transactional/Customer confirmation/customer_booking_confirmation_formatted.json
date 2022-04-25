@@ -1,0 +1,102 @@
+{
+  "booking_id": 251,
+  "external_id": "16568263",
+  "package_title": "Test hotel arrangement",
+  "arrival_date": {
+    "short": "17 aug 2022",
+    "long": "woensdag 17 augustus 2022"
+  },
+  "customer_detail": {
+    "first_name": "Jan",
+    "last_name": "Filipowski",
+    "special_request": "My special wish"
+  },
+  "departure_date": {
+    "short": "19 aug 2022"
+  },
+  "price": {
+    "paid": "€584,50",
+    "reservation_fee": "€19,50",
+    "taxes_and_fees": "€0,00",
+    "due_at_property": "€0,00",
+    "hotel_arrangement": "€199,50",
+    "extras_total": "€385,00"
+  },
+  "checkin": {
+    "time": "15.00 uur",
+    "instructions": "<p>You can check-in after 15.00. You must show your ID and be nice.</p>",
+    "special_instructions": "<p>Be very nice on Fridays.</p>"
+  },
+  "checkout": {
+    "time": "11.00 uur"
+  },
+  "hotel": {
+    "name": "Test OpenGDS Hotel",
+    "address": {
+      "line1": "Spuistraat 176",
+      "line2": "1011AB Amsterdam",
+      "line3": "NL"
+    },
+    "image": "https://admin.advalley.io/assets/0dabffd4-c31e-4dd7-9793-7a71c357c2b4"
+  },
+  "room": {
+    "name": "Wonderful Exchange Room (25-30sqm)",
+    "beds": null
+  },
+  "fees": {
+    "mandatory": "<p>You need to pay additional local taxes 1500 Euros daily</p>",
+    "optional": "<p>You may pay even more for local taxes.</p>"
+  },
+  "policies": "<p>Be nice</p>\n<p>Sing nice songs</p>",
+  "included": [
+    "Gratis parkeren",
+    "Late check out tot 13:00u",
+    "1 x Overnachting voor 2 personen",
+    "Kamer upgrade met uitzicht over de grachten",
+    "Uitgebreid ontbijtbuffet voor 2 personen",
+    "3-Gangendiner voor 2 personen"
+  ],
+  "cancel_url": "https://vialuxury.com/nl-nl/cancel?bookingId=251",
+  "extras": [
+    {
+      "title": "Chocolade (per stuk per dag berekening)",
+      "quantity": 1,
+      "total_price": "€36,00"
+    },
+    {
+      "title": "Badjas (Per piece per night berekening)",
+      "quantity": 1,
+      "total_price": "€26,00"
+    },
+    {
+      "title": "Huisdier (Per person berekening)",
+      "quantity": 2,
+      "total_price": "€28,00"
+    },
+    {
+      "title": "Bosbessen (Per person per day berekening)",
+      "quantity": 2,
+      "total_price": "€90,00"
+    },
+    {
+      "title": "Koffie (Per person per night berekening)",
+      "quantity": 2,
+      "total_price": "€64,00"
+    },
+    {
+      "title": "Fiets (Per person with date selection berekening)",
+      "quantity": 2,
+      "total_price": "€102,00"
+    },
+    {
+      "title": "Telefoon (Per accommodation berekening)",
+      "quantity": 1,
+      "total_price": "€18,00"
+    },
+    {
+      "title": "Per accommodation with date selection",
+      "quantity": 1,
+      "total_price": "€21,00"
+    }
+  ]
+}
