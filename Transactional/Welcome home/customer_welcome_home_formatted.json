@@ -1,0 +1,13 @@
+{
+  "customer_detail": {
+    "first_name": "Jan",
+    "last_name": "Filipowski",
+    "arrival_date": {
+      "short": "17 aug 2022",
+      "long": "woensdag 17 augustus 2022"
+    }
+  },
+  "hotel": {
+    "name": "Test OpenGDS Hotel"
+  }
+}
