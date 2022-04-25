@@ -54,7 +54,7 @@
                                           <tr style="border-collapse:collapse">
                                             <td align="left" style="padding:0;Margin:0; padding-bottom: 12px;">
                                               <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family: arial, helvetica, sans-serif;line-height:24px;color:#333333;font-size:16px; font-weight: 700;">
-                                                Boutique Hotel Ter Zand
+                                                {{hotel.name}}
                                               </p>
                                             </td>
                                           </tr>
@@ -74,7 +74,7 @@
                                                     <img src="https://vicinity.picsrv.net/image/10806/0/3686/9e27738b9f244b76173d55931986cba5/2022_transactional_adres2.png" width="16" height="22" style="display: block;">
                                                   </td>
                                                   <td valign="top" align="left">
-                                                    <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family: arial, helvetica, sans-serif;line-height:24px;color:#333333;font-size:14px"> Hogeweg 59, 4328 PB <br>Burgh-Haamstede<br>Nederland </p>
+                                                    <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family: arial, helvetica, sans-serif;line-height:24px;color:#333333;font-size:14px"> {{hotel.address.line1}} <br>{{hotel.address.line2}}<br>{{hotel.address.line3}} </p>
                                                   </td>
                                                 </tr>
                                                 </table></td></tr></tbody>
@@ -124,10 +124,10 @@
                                                             </td>
                                                             <td align="left" width="98" style="padding:0;Margin:0;width:98px;">
                                                               <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family: arial, helvetica, sans-serif;line-height:24px;color:#333333;font-size:16px; padding-bottom: 4px;">
-                                                                <b>18 juli 2021</b>
+                                                                <b>{{arrival_date.short}}</b>
                                                               </p>
                                                               <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family: arial, helvetica, sans-serif;line-height:24px;color:#333333;font-size:14px">
-                                                                vanaf 10:00 uur
+                                                                vanaf {{checkin.time}}
                                                               </p>
                                                             </td>
                                                           </tr>
@@ -156,10 +156,10 @@
                                                             </td>
                                                             <td align="left" width="98" style="padding:0;Margin:0;width:98px;">
                                                               <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family: arial, helvetica, sans-serif;line-height:24px;color:#333333;font-size:16px; padding-bottom: 4px;">
-                                                                <b>20 juli 2021</b>
+                                                                <b>{{departure_date.short}}</b>
                                                               </p>
                                                               <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family: arial, helvetica, sans-serif;line-height:24px;color:#333333;font-size:14px">
-                                                                tot 16:00 uur
+                                                                tot {{checkout.time}}
                                                               </p>
                                                             </td>
                                                           </tr>
@@ -347,16 +347,17 @@
 <table cellpadding="0" cellspacing="0" align="left" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;">
   <tbody>
     <tr>
-      <td class="m-p-l-20 m-p-r-20" align="left" style="padding:0 48px 24px 48px;Margin:0;">
+      <td class="m-p-l-20 m-p-r-20" align="left" style="padding:0 48px 64px 48px;Margin:0;">
         <table cellpadding="0" cellspacing="0" align="left" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;">
           <tbody>
             <tr style="border-collapse:collapse">
               <td align="left" style="padding-bottom: 24px;">
-                <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family: arial, helvetica, sans-serif;line-height:40px;color:#333333;font-size:30px;font-weight: 700;">Tips in Amsterdam</p>
+                <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family: arial, helvetica, sans-serif;line-height:40px;color:#333333;font-size:30px;font-weight: 700;">Tips in {{tips_in_area.city}}</p>
               </td>
             </tr>
+            {{#each tips_in_area.tips}}
             <tr style="border-collapse:collapse">
-              <td class="m-p-b-40" align="left">
+              <td align="left" style="padding-bottom: 40px;">
                 <!--[if mso]>
                 <table cellpadding="0" cellspacing="0" style="width:500px;">
                   <tr>
@@ -366,7 +367,7 @@
                         <tbody>
                           <tr style="border-collapse:collapse">
                             <td class="m-width-100 m-p-r-0 m-p-b-24" align="left" style="padding:0;Margin:0;width:214px; padding-right: 32px;">
-                              <img class="m-width-100" src="http://cdn.mcauto-images-production.sendgrid.net/496b953602f1314f/4c7e8acd-476e-4a82-9b54-8f1732ba351d/214x201.jpg" width="214" height="201" alt="Afbeelding De Jordaan" style="padding:0;Margin:0;display:block;">
+                              <img class="m-width-100" src="{{this.image}}" width="214" height="201" alt="Afbeelding {{this.image}}" style="padding:0;Margin:0;display:block;">
                             </td>
                           </tr>
                         </tbody>
@@ -383,13 +384,13 @@
                                 <tbody>
                                   <tr style="border-collapse:collapse">
                                     <td align="left" style="padding:0;Margin:0; padding-bottom:12px;">
-                                      <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family: arial, helvetica, sans-serif;line-height:24px;color:#333333;font-size:18px"><b>De Jordaan</b></p>
+                                      <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family: arial, helvetica, sans-serif;line-height:24px;color:#333333;font-size:18px"><b>{{this.title}}</b></p>
                                     </td>
                                   </tr>
                                   <tr style="border-collapse:collapse">
                                     <td align="left" style="padding:0;Margin:0;">
                                       <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family: arial, helvetica, sans-serif;line-height:24px;color:#333333;font-size:16px">
-                                        Op zoek naar kleine winkeltjes, een ouderwets bruin café of een hippe ijssalon? In de Jordaan kunt u het allemaal vinden. Ontdek de charme van de pittoreske grachten en verborgen hofjes van deze populaire wijk in Amsterdam. Als u in de Jordaan bent kan u een bezoek aan het indrukwekkende Anne Frank huis niet overslaan.  
+                                        {{this.text}}
                                       </p>
                                     </td>
                                   </tr>
@@ -406,6 +407,7 @@
                 <![endif]-->
               </td>
             </tr>
+            {{/each}}
           </tbody>
         </table>
       </td>

@@ -12,10 +12,16 @@
     },
     "image": "https://admin.advalley.io/assets/0dabffd4-c31e-4dd7-9793-7a71c357c2b4"
   },
+  "arrival_date": {
+    "short": "17 aug 2022"
+  },
   "checkin": {
     "time": "15.00 uur",
     "instructions": "<p>You can check-in after 15.00. You must show your ID and be nice.</p>",
     "special_instructions": "<p>Be very nice on Fridays.</p>"
+  },
+  "departure_date": {
+    "short": "19 aug 2022"
   },
   "checkout": {
     "time": "11.00 uur"
@@ -24,22 +30,22 @@
     "city": "Amsterdam",
     "tips": [
       {
-        "image": "https://www.imageurlhere.com",
+        "image": "https://picsum.photos/214/201",
         "title": "De Jordaan",
         "text": "Op zoek naar kleine winkeltjes, een ouderwets bruin café of een hippe ijssalon? In de Jordaan kunt u het allemaal vinden. Ontdek de charme van de pittoreske grachten en verborgen hofjes van deze populaire wijk in Amsterdam. Als u in de Jordaan bent kan u een bezoek aan het indrukwekkende Anne Frank huis niet overslaan."
       },
       {
-        "image": "https://www.imageurlhere.com",
+        "image": "https://picsum.photos/214/201",
         "title": "A'DAM Toren",
         "text": "Op zoek naar kleine winkeltjes, een ouderwets bruin café of een hippe ijssalon? In de Jordaan kunt u het allemaal vinden. Ontdek de charme van de pittoreske grachten en verborgen hofjes van deze populaire wijk in Amsterdam. Als u in de Jordaan bent kan u een bezoek aan het indrukwekkende Anne Frank huis niet overslaan. "
       },
       {
-        "image": "https://www.imageurlhere.com",
+        "image": "https://picsum.photos/214/201",
         "title": "De 9 straatjes",
         "text": "Op zoek naar kleine winkeltjes, een ouderwets bruin café of een hippe ijssalon? In de Jordaan kunt u het allemaal vinden. Ontdek de charme van de pittoreske grachten en verborgen hofjes van deze populaire wijk in Amsterdam. Als u in de Jordaan bent kan u een bezoek aan het indrukwekkende Anne Frank huis niet overslaan."
       },
       {
-        "image": "https://www.imageurlhere.com",
+        "image": "https://picsum.photos/214/201",
         "title": "Paleis op de Dam",
         "text": "Op zoek naar kleine winkeltjes, een ouderwets bruin café of een hippe ijssalon? In de Jordaan kunt u het allemaal vinden. Ontdek de charme van de pittoreske grachten en verborgen hofjes van deze populaire wijk in Amsterdam. Als u in de Jordaan bent kan u een bezoek aan het indrukwekkende Anne Frank huis niet overslaan."
       }

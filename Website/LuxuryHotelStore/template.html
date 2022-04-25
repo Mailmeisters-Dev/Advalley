@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <title>De nummer 1 in luxe arrangementen van 4- en 5-sterren hotels</title>
+    <link rel="icon" href="https://luxuryhotelcompany.com/favicon-new.ico">
+
+    <!-- Load custom webfont -->
+    <link href="//db.onlinewebfonts.com/c/a638be55afb1ed29ceb7ea7e288c2139?family=GT+Flexa" rel="stylesheet" type="text/css"/>
+
+    <!-- Load Font Awesome icons -->
+    <script src="https://kit.fontawesome.com/9a0bea37ea.js" crossorigin="anonymous"></script>
+
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__logo">
+        <a href="https://luxuryhotelcompany.com/packages" target="_blank">
+          <img alt="Luxury Hotel Company logo" src="https://cdn.shopify.com/s/files/1/0553/4783/9132/files/logo-png.png"/>
+        </a>
+      </div>
+    </header>
+    <div class="header__placeholder"></div>
+    <div class="hotel__topbar">
+      <div class="hotel__topbar-wrapper">
+        <div class="hotel__topbar-item">
+          <img src="https://cdn.shopify.com/s/files/1/0553/4783/9132/files/icon-delivery_48x.png" alt="Snelle bezorging" width="16" height="16" class="hotel__topbar-item-icon"/>
+          Vandaag besteld, dezelfde dag verzonden
+        </div>
+        <div class="hotel__topbar-item">
+          <img src="https://cdn.shopify.com/s/files/1/0553/4783/9132/files/icon-quality_48x.png" alt="Hotelkwaliteit" width="16" height="16" class="hotel__topbar-item-icon"/>
+          Hotelkwaliteit voor bij u thuis
+        </div>
+        <div class="hotel__topbar-item">
+          <img src="https://cdn.shopify.com/s/files/1/0553/4783/9132/files/icon-deals_48x.png" alt="Beste aanbiedingen" width="16" height="16" class="hotel__topbar-item-icon"/>
+          Altijd de beste aanbiedingen
+        </div>
+      </div>
+    </div>
+    <main class="main">
+      <div class="container container__lhc">
+        [loop name="intro_image" min="0"]
+        <div class="main__image p-b-48">
+          <div class="main__image-background">
+            <h1 class="main__h1">[text name="title" editor="poor"]</h1>
+          </div>
+        </div>
+        [/loop]
+        <div class="row intro-text p-b-40">
+          <h2 class="p-b-16">[text name="title" editor="poor"]</h3>
+          <span>[text name="text" editor="poor"]</span>
+        </div>
+      </div>
+      <div class="container container__lhc">
+        <div class="main__form">
+          [loop name="form" min="0"]
+          [text name="form_generated_code"]
+          [loop name="form_fields_row" min="0"]
+          {capture assign="tijdelijkePauze"}[text name="tijdelijke_pauze" editor="poor"]{/capture}
+            <div class="row p-b-32">
+              [loop name="title" min="0"]
+                <h3 class="p-b-16">[text name="title" editor="poor"]</h3>
+              [/loop]
+              [loop name="title_description" min="0"]
+                <h3 class="p-b-8">[text name="title" editor="poor"]</h3>
+                <div class="p-b-16">
+                  [text name="description" editor="poor"]
+                </div>
+              [/loop]
+              [loop name="radio_buttons" min="0"]
+              {capture assign="dbField"}[text name="name_dbfield" editor="poor"]{/capture}
+              [loop name="radio" min="0"]
+              {capture assign="radioId"}[text name="radio_id" editor="poor"]{/capture}
+              {capture assign="radioValue"}[text name="radio_value"]{/capture}
+              <div class="p-b-8">
+                <input class="radio" type="radio" name="{$dbField}" id="{$radioId}" value="{$radioValue}">
+                <label class="form-check-label" for="{$radioId}">
+                  [text name="name_field" editor="poor"]
+                </label>
+              </div>
+              [/loop]
+              [text name="extra_text" editor="poor"]
+              [/loop]
+            </div>
+            {if $tijdelijkePauze != ''}
+            <div class="row p-b-32 js-pause-container hide">
+              <div class="pause__title">
+                <i class="fa-solid fa-circle-exclamation"></i>
+                <h3 class="p-b-8">Weet u het zeker? U kunt ook voor een tijdelijke pauze kiezen!</h3>
+              </div>
+              <div class="p-b-16">
+                Zo ontvangt u automatisch weer <b>de beste aanbiedingen</b> op het moment dat u dat wilt.
+              </div>
+              <div class="p-b-8">
+                <input class="radio" type="radio" name="dbfield177" id="pause-1" value="1maand">
+                <label class="form-check-label" for="pause-1">
+                  1 maand
+                </label>
+              </div>
+              <div class="p-b-8">
+                <input class="radio" type="radio" name="dbfield177" id="pause-2" value="2maanden">
+                <label class="form-check-label" for="pause-2">
+                  2 maanden
+                </label>
+              </div>
+              <div class="p-b-16">
+                <input class="radio" type="radio" name="dbfield177" id="pause-6" value="6maanden">
+                <label class="form-check-label" for="pause-6">
+                  6 maanden
+                </label>
+              </div>
+              <div class="pause__reset js-pause-reset">
+                Klik <u>hier</u> om uw tijdelijke pauze keuze te herstellen
+              </div>
+            </div>
+            {/if}
+            [/loop]
+            <div class="form__submit p-t-8">
+              <input class="submit__button" type="submit" value="[text name='button_text']" name="submit">
+            </div>
+          </form>
+            [loop name="form_script" min="0"]
+              [text name="script" editor="poor"]
+            [/loop]
+          [/loop]
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__row">
+          <div class="footer__item item-first">
+            <a href="https://luxuryhotelcompany.com/packages" target="_blank">
+              <img class="footer__logo" alt="Luxury Hotel Company logo" src="https://luxuryhotelcompany.com/img/logo.e7714767.png"/>
+            </a>
+            <div class="footer__text-small">
+              Snel, veilig, en betalen wanneer het u uitkomt
+            </div>
+            <div class="pagefooter__payment-row" data-v-e0f3c8f8="">
+              <img src="https://luxuryhotelcompany.com/img/icon-visa.f8466316.svg">
+              <img src="https://luxuryhotelcompany.com/img/icon-mastercard.cc175d24.svg">
+              <img src="https://luxuryhotelcompany.com/img/icon-ideal.3e8ad4d6.svg">
+              <img src="https://luxuryhotelcompany.com/img/icon-bancontact.780f2cd7.svg">
+              <img src="https://luxuryhotelcompany.com/img/icon-sofort.fb2ff207.svg">
+            </div>
+          </div>
+          <div class="footer__item social__icons">
+            <div class="social__title p-b-16">Volg ons op</div>
+            <a href="https://www.facebook.com/luxuryhotelcompany" target="_blank">
+              <img src="https://fcnser.stripocdn.email/content/assets/img/social-icons/logo-gray/facebook-logo-gray.png" alt="Volg ons op facebook"/>
+            </a>
+            <a href="https://www.instagram.com/luxury_hotel_company/" target="_blank">
+              <img src="https://fcnser.stripocdn.email/content/assets/img/social-icons/logo-gray/instagram-logo-gray.png" alt="Volg ons op instagram"/>
+            </a>
+          </div>
+          <div class="footer__questions">
+            <div class="item-second footer__title p-b-16">Heeft u een vraag?</div>
+            <div class="footer__item">
+              <div class="p-b-16">
+                Bekijk onze meest gestelde vragen.
+              </div>
+              <div>
+                <a class="footer__link" href="https://luxuryhotelcompany.force.com/helpcenter/s/" target="_blank">FAQ</a>
+              </div>
+            </div>
+            <div class="footer__item">
+              <div class="p-b-16">
+                Of neem contact op via ons contact formulier.
+              </div>
+              <div>
+                <a class="footer__link" href="https://luxuryhotelcompany.force.com/helpcenter/s/contactsupport" target="_blank">Stuur een bericht</a>
+              </div>
+            </div>
+            <div class="footer__item">
+              <div class="p-b-16">
+                We zijn op werkdagen ook telefonisch bereikbaar.
+              </div>
+              <div>
+                <a class="footer__link" href="tel:+31207052222" target="_blank">+31 20 705 2222</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <!-- Retrieve current frequency as hidden element -->
+    <input id="js-initial-frequency-hidden" type="hidden" value="{$profile.EM_Frequency}"/>
+
+  </body>
+</html>
