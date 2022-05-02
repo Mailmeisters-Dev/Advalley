@@ -52,7 +52,7 @@
           </div>
         </div>
         [/loop]
-        <div class="row intro-text p-b-40">
+        <div class="row intro-text p-b-32">
           <h2 class="p-b-16">[text name="title" editor="poor"]</h3>
           <span>[text name="text" editor="poor"]</span>
         </div>
@@ -62,7 +62,6 @@
           [loop name="form" min="0"]
           [text name="form_generated_code"]
           [loop name="form_fields_row" min="0"]
-          {capture assign="tijdelijkePauze"}[text name="tijdelijke_pauze" editor="poor"]{/capture}
             <div class="row p-b-32">
               [loop name="title" min="0"]
                 <h3 class="p-b-16">[text name="title" editor="poor"]</h3>
@@ -88,39 +87,7 @@
               [text name="extra_text" editor="poor"]
               [/loop]
             </div>
-            {if $tijdelijkePauze != ''}
-            <div class="row p-b-32 js-pause-container hide">
-              <div class="pause__title">
-                <i class="fa-solid fa-circle-exclamation"></i>
-                <h3 class="p-b-8">Weet u het zeker? U kunt ook voor een tijdelijke pauze kiezen!</h3>
-              </div>
-              <div class="p-b-16">
-                Zo ontvangt u automatisch weer <b>de beste aanbiedingen</b> op het moment dat u dat wilt.
-              </div>
-              <div class="p-b-8">
-                <input class="radio" type="radio" name="dbfield177" id="pause-1" value="1maand">
-                <label class="form-check-label" for="pause-1">
-                  1 maand
-                </label>
-              </div>
-              <div class="p-b-8">
-                <input class="radio" type="radio" name="dbfield177" id="pause-2" value="2maanden">
-                <label class="form-check-label" for="pause-2">
-                  2 maanden
-                </label>
-              </div>
-              <div class="p-b-16">
-                <input class="radio" type="radio" name="dbfield177" id="pause-6" value="6maanden">
-                <label class="form-check-label" for="pause-6">
-                  6 maanden
-                </label>
-              </div>
-              <div class="pause__reset js-pause-reset">
-                Klik <u>hier</u> om uw tijdelijke pauze keuze te herstellen
-              </div>
-            </div>
-            {/if}
-            [/loop]
+          [/loop]
             <div class="form__submit p-t-8">
               <input class="submit__button" type="submit" value="[text name='button_text']" name="submit">
             </div>
@@ -139,52 +106,67 @@
             <a href="https://luxuryhotelcompany.com/packages" target="_blank">
               <img class="footer__logo" alt="Luxury Hotel Company logo" src="https://luxuryhotelcompany.com/img/logo.e7714767.png"/>
             </a>
-            <div class="footer__text-small">
-              Snel, veilig, en betalen wanneer het u uitkomt
-            </div>
-            <div class="pagefooter__payment-row" data-v-e0f3c8f8="">
-              <img src="https://luxuryhotelcompany.com/img/icon-visa.f8466316.svg">
-              <img src="https://luxuryhotelcompany.com/img/icon-mastercard.cc175d24.svg">
-              <img src="https://luxuryhotelcompany.com/img/icon-ideal.3e8ad4d6.svg">
-              <img src="https://luxuryhotelcompany.com/img/icon-bancontact.780f2cd7.svg">
-              <img src="https://luxuryhotelcompany.com/img/icon-sofort.fb2ff207.svg">
+          </div>
+          <div class="footer__menu-wrapper">
+              <div>
+                <div class="footer__menu">
+                  <a class="footer__link" href="https://luxuryhotelcompany.force.com/helpcenter/s/" target="_blank">Contact</a>
+                </div>
+                <div class="footer__menu">
+                  <a class="footer__link" href="https://luxuryhotelcompany.force.com/helpcenter/s/" target="_blank">Shipping policy</a>
+                </div>
+              </div>
+              <div>
+                <div class="footer__rating">
+                  <img loading="lazy" src="//cdn.shopify.com/s/files/1/0553/4783/9132/files/trustpilot2_118x.png?v=1650008580" width="118" height="23" class="footer__trustpilot" alt="Trustpilot review">
+                  <div class="footer__rating-count">
+                    TrustPilot score: 4,6/5
+                    <br>
+                    <span class="footer__text-small">Beoordeeld door meer dan 8000 klanten!</span>
+                  </div>
+                </div>
             </div>
           </div>
-          <div class="footer__item social__icons">
-            <div class="social__title p-b-16">Volg ons op</div>
-            <a href="https://www.facebook.com/luxuryhotelcompany" target="_blank">
-              <img src="https://fcnser.stripocdn.email/content/assets/img/social-icons/logo-gray/facebook-logo-gray.png" alt="Volg ons op facebook"/>
-            </a>
-            <a href="https://www.instagram.com/luxury_hotel_company/" target="_blank">
-              <img src="https://fcnser.stripocdn.email/content/assets/img/social-icons/logo-gray/instagram-logo-gray.png" alt="Volg ons op instagram"/>
-            </a>
+          <div class="footer__methods">
+            <div class="footer__payment">
+              <span>Betaalmethoden</span>
+              <ul class="list__payment">
+                <li class="list__payment-item">
+                  <img loading="lazy" src="//cdn.shopify.com/s/files/1/0553/4783/9132/files/payment-icon-american_express.svg?v=3400142135354584887" width="48" height="48">
+                </li>
+                <li class="list__payment-item">
+                  <img loading="lazy" src="//cdn.shopify.com/s/files/1/0553/4783/9132/files/payment-icon-bancontact.svg?v=2572422308026912408" width="48" height="48">
+                </li>
+                <li class="list__payment-item">
+                  <img loading="lazy" src="//cdn.shopify.com/s/files/1/0553/4783/9132/files/payment-icon-ideal.svg?v=10432382710602770182" width="48" height="48">
+                </li>
+                <li class="list__payment-item">
+                  <img loading="lazy" src="//cdn.shopify.com/s/files/1/0553/4783/9132/files/payment-icon-maestro.svg?v=18000087750730321551" width="48" height="48">
+                </li>
+                <li class="list__payment-item">
+                  <img loading="lazy" src="//cdn.shopify.com/s/files/1/0553/4783/9132/files/payment-icon-master.svg?v=8274388912846158800" width="48" height="48">
+                </li>
+                <li class="list__payment-item">
+                  <img loading="lazy" src="//cdn.shopify.com/s/files/1/0553/4783/9132/files/payment-icon-visa.svg?v=13237779120484898561" width="48" height="48">
+                </li>
+              </ul>
+            </div>
+            <div class="footer__shipping">
+              <span>Verzending</span>
+              <ul class="list__payment">
+                <li class="list__payment-item">
+                  <img loading="lazy" src="//cdn.shopify.com/s/files/1/0553/4783/9132/files/payment-icon-postnl.svg?v=8482204517289844547" width="48" height="48">
+                </li>
+              </ul>
+            </div>
           </div>
-          <div class="footer__questions">
-            <div class="item-second footer__title p-b-16">Heeft u een vraag?</div>
-            <div class="footer__item">
-              <div class="p-b-16">
-                Bekijk onze meest gestelde vragen.
-              </div>
-              <div>
-                <a class="footer__link" href="https://luxuryhotelcompany.force.com/helpcenter/s/" target="_blank">FAQ</a>
-              </div>
-            </div>
-            <div class="footer__item">
-              <div class="p-b-16">
-                Of neem contact op via ons contact formulier.
-              </div>
-              <div>
-                <a class="footer__link" href="https://luxuryhotelcompany.force.com/helpcenter/s/contactsupport" target="_blank">Stuur een bericht</a>
-              </div>
-            </div>
-            <div class="footer__item">
-              <div class="p-b-16">
-                We zijn op werkdagen ook telefonisch bereikbaar.
-              </div>
-              <div>
-                <a class="footer__link" href="tel:+31207052222" target="_blank">+31 20 705 2222</a>
-              </div>
-            </div>
+        </div>
+        <div class="footer__bottom">
+          <div class="footer__item item-first auto-width">
+            <span class="copyright__content">Copyright 2022 - Advalley B.V.</span>
+          </div>
+          <div class="footer__conditions">
+            <a href="https://luxuryhotelstore.com/pages/algemene-voorwaarden" class="footer__link">Algemene Voorwaarden</a>
           </div>
         </div>
       </div>
