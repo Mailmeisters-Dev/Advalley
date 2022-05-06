@@ -1,4 +1,7 @@
-<head><style type="text/css">body {
+<head>
+<style type="text/css">
+
+body {
   Margin: 0;
 }
 
@@ -16,6 +19,12 @@ a {
 
   .m-show {
     display: block !important;
+    max-height: none !important;
+    visibility: visible !important;
+  }
+
+  .m-show.inline {
+    display: inline-block !important;
     max-height: none !important;
     visibility: visible !important;
   }
@@ -42,6 +51,10 @@ a {
 
   .m-text-center {
     text-align: center !important;
+  }
+
+  .m-text-left {
+    text-align: left !important;
   }
 
   .m-h1-small {
@@ -105,14 +118,14 @@ a {
     background-position: bottom center !important;
     height: 275px !important;
     width: auto !important;
-    background-image: url(http://cdn.mcauto-images-production.sendgrid.net/496b953602f1314f/ae8528ed-32f8-473f-9d25-8fde369afb9f/640x275.jpg) !important;
+    background-image: url(https://cdn.mcauto-images-production.sendgrid.net/496b953602f1314f/ae8528ed-32f8-473f-9d25-8fde369afb9f/640x275.jpg) !important;
   }
 
   .m-bgimage-center-happytravels {
     background-position: bottom center !important;
     height: 275px !important;
     width: auto !important;
-    background-image: url(http://cdn.mcauto-images-production.sendgrid.net/496b953602f1314f/3f625a6a-830b-49e2-9fb0-5a8fdcbc0670/600x275.jpg) !important;
+    background-image: url(https://cdn.mcauto-images-production.sendgrid.net/496b953602f1314f/3f625a6a-830b-49e2-9fb0-5a8fdcbc0670/600x275.jpg) !important;
   }
 
   .m-height-105 {
@@ -128,24 +141,5 @@ a {
     border-bottom: 1px solid #DADBDB;
   }
 }
-
-< !--[if mso]>body,
-div,
-table,
-td,
-font,
-a,
-strong,
-span {
-  font-family: Arial, sans-serif !important;
-}
-
-.mso-font-black {
-  font-family: Arial Black, sans-serif !important;
-}
-
-.modules-container {
-  max-width: 600px !important;
-}
-
-< ![endif]--></style></head>
+</style>
+</head>
