@@ -65,7 +65,7 @@
           [text name="form_generated_code"]
           [loop name="form_fields_row" min="0"]
           {capture assign="tijdelijkePauze"}[text name="tijdelijke_pauze" editor="poor"]{/capture}
-            <div class="row p-b-32">
+            <div class="row">
               [loop name="title" min="0"]
                 <h3 class="p-b-16">[text name="title" editor="poor"]</h3>
               [/loop]
@@ -75,12 +75,76 @@
                   [text name="description" editor="poor"]
                 </div>
               [/loop]
+              [loop name="text_1column" min="0"]
+              <div class="row p-b-24">
+                {capture assign="bootstrapColumn"}[text name="column_width"]{/capture}
+                <div class="{$bootstrapColumn}">
+                  {capture assign="type"}[text name="field_type"]{/capture}
+                  {capture assign="id"}[text name="id"]{/capture}
+                  {capture assign="value"}[text name="value"]{/capture}
+                  {capture assign="requiredOrDisabled"}[text name="required"]{/capture}
+                  {capture assign="disabled"}[text name="disabled"]{/capture}
+                  <label for="{$id}">{if $required === 'yes'}* {/if}[text name="label"]</label>
+                  <input {$disabled} {$value} type="{$type}" class="form-control {if $required === 'yes'}required{/if}" id="{$id}" name="[text name='dbfield']" placeholder="[text name='placeholder']">
+                  {capture assign="extraText"}[text name="extra_text"]{/capture}
+                  {if $extraText !== ''}<span class="extra-text">{$extraText}</span>{/if}
+                </div>
+              </div>
+              [/loop]
+              [loop name="text_2column" min="0"]
+              <div class="row p-b-16">
+                {capture assign="bootstrapColumnLeft"}[text name="column_width_left"]{/capture}
+                <div class="{$bootstrapColumnLeft} p-b-16">
+                  {capture assign="typeLeft"}[text name="field_type_left"]{/capture}
+                  {capture assign="idLeft"}[text name="id_left"]{/capture}
+                  {capture assign="requiredLeft"}[text name="required_left"]{/capture}
+                  <label for="{$idLeft}">{if $requiredLeft === 'yes'}* {/if}[text name="label_left"]</label>
+                  <input type="{$typeLeft}" class="form-control {if $requiredLeft === 'yes'}required{/if}" id="{$idLeft}" name="[text name='dbfield_left']" placeholder="[text name='placeholder_left']">
+                </div>
+                {capture assign="bootstrapColumnRight"}[text name="column_width_right"]{/capture}
+                <div class="{$bootstrapColumnRight}">
+                  {capture assign="typeRight"}[text name="field_type_right"]{/capture}
+                  {capture assign="idRight"}[text name="id_right"]{/capture}
+                  {capture assign="requiredRight"}[text name="required_right"]{/capture}
+                  <label for="{$idRight}">{if $requiredRight === 'yes'}* {/if}[text name="label_right"]</label>
+                  <input type="{$typeRight}" class="form-control {if $requiredRight === 'yes'}required{/if}" id="{$idRight}" name="[text name='dbfield_right']" {$requiredRight} placeholder="[text name='placeholder_right']">
+                </div>
+              </div>
+              [/loop]
+              [loop name="text_3column" min="0"]
+              <div class="row p-b-8">
+                {capture assign="bootstrapColumnLeft"}[text name="column_width_left"]{/capture}
+                <div class="{$bootstrapColumnLeft} p-b-16">
+                  {capture assign="typeLeft"}[text name="field_type_left"]{/capture}
+                  {capture assign="idLeft"}[text name="id_left"]{/capture}
+                  {capture assign="requiredLeft"}[text name="required_left"]{/capture}
+                  <label for="{$idLeft}">{if $requiredLeft === 'yes'}* {/if}[text name="label_left"]</label>
+                  <input type="{$typeLeft}" class="form-control {if $requiredLeft === 'yes'}required{/if}" id="{$idLeft}" name="[text name='dbfield_left']" placeholder="[text name='placeholder_left']">
+                </div>
+                {capture assign="bootstrapColumnMiddle"}[text name="column_width_middle"]{/capture}
+                <div class="{$bootstrapColumnMiddle} p-b-16">
+                  {capture assign="typeMiddle"}[text name="field_type_middle"]{/capture}
+                  {capture assign="idMiddle"}[text name="id_middle"]{/capture}
+                  {capture assign="requiredMiddle"}[text name="required_middle"]{/capture}
+                  <label for="{$idMiddle}">{if $requiredMiddle === 'yes'}* {/if}[text name="label_middle"]</label>
+                  <input type="{$typeMiddle}" class="form-control {if $requiredMiddle === 'yes'}required{/if}" id="{$idMiddle}" name="[text name='dbfield_middle']" placeholder="[text name='placeholder_middle']">
+                </div>
+                {capture assign="bootstrapColumnRight"}[text name="column_width_right"]{/capture}
+                <div class="{$bootstrapColumnRight}">
+                  {capture assign="typeRight"}[text name="field_type_right"]{/capture}
+                  {capture assign="idRight"}[text name="id_right"]{/capture}
+                  {capture assign="requiredRight"}[text name="required_right"]{/capture}
+                  <label for="{$idRight}">{if $requiredRight === 'yes'}* {/if}[text name="label_right"]</label>
+                  <input type="{$typeRight}" class="form-control {if $requiredRight === 'yes'}required{/if}" id="{$idRight}" name="[text name='dbfield_right']" {$requiredRight} placeholder="[text name='placeholder_right']">
+                </div>
+              </div>
+              [/loop]
               [loop name="radio_buttons" min="0"]
               {capture assign="dbField"}[text name="name_dbfield" editor="poor"]{/capture}
               [loop name="radio" min="0"]
               {capture assign="radioId"}[text name="radio_id" editor="poor"]{/capture}
               {capture assign="radioValue"}[text name="radio_value"]{/capture}
-              <div class="p-b-8">
+              [if $loop.radio_button.radio.last]<div class="p-b-32">[else]<div class="p-b-8">[/if]
                 <input class="radio" type="radio" name="{$dbField}" id="{$radioId}" value="{$radioValue}">
                 <label class="form-check-label" for="{$radioId}">
                   [text name="name_field" editor="poor"]
@@ -91,7 +155,7 @@
               [/loop]
             </div>
             {if $tijdelijkePauze != ''}
-            <div class="row p-b-32 js-pause-container hide">
+            <div class="row p-t-32 js-pause-container hide">
               <div class="pause__title">
                 <i class="fa-solid fa-circle-exclamation"></i>
                 <h3 class="p-b-8">Weet u het zeker? U kunt ook voor een tijdelijke pauze kiezen!</h3>
@@ -123,7 +187,7 @@
             </div>
             {/if}
             [/loop]
-            <div class="form__submit p-t-8">
+            <div class="form__submit p-t-32">
               <input class="submit__button" type="submit" value="[text name='button_text']" name="submit">
             </div>
           </form>
@@ -198,12 +262,29 @@
     <!-- Retrieve current frequency as hidden element -->
     <input id="js-initial-frequency-hidden" type="hidden" value="{$profile.EM_Frequency}"/>
 
+    <!-- Add required property to required text fields based on required classes -->
+    <script type="text/javascript">
+      var requiredFields = document.querySelectorAll('.required');
+      requiredFields.forEach(function(requiredField) {
+        requiredField.required = true;
+      });
+    </script>
+
+    [literal]
+    <!-- Retrieve date field and reverse the order, because Copernica saves dates as american date format -->
+    <script type="text/javascript">
+      if (document.getElementsByName('dbfield35')) {
+        var birthdayField = document.getElementsByName('dbfield35')[0];
+        var birthdayValue = birthdayField.value;
+        birthdayValue = birthdayValue.split('-').reverse().join('-');
+        birthdayField.value = birthdayValue;
+      }
+    </script>
     
     {if $smarty.server.REQUEST_URI|strstr:'uitschrijven'}
     <!-- Only add scripts to page if URL contains 'uitschrijven' with above Smarty.
     This way there will be no errors in the JavaScript if certain elements don't exist on page -->
 
-    [literal]
     <script type="text/javascript">
       var initialFrequencyValue = document.getElementById('js-initial-frequency-hidden').value;
     </script>
@@ -232,9 +313,9 @@
       // Called from clicking frequency radios
       function hideShowPauseElement(action) {
         if (action === 'hide') {
-          pauseElement.setAttribute('class', 'row p-b-32 js-pause-container hide');
+          pauseElement.setAttribute('class', 'row p-t-32 js-pause-container hide');
         } else {
-          pauseElement.setAttribute('class', 'row p-b-32 js-pause-container');
+          pauseElement.setAttribute('class', 'row p-t-32 js-pause-container');
         }
       }
 
@@ -315,7 +396,7 @@
       });
       
     </script>
-    [/literal]
     {/if}
+    [/literal]
   </body>
 </html>
