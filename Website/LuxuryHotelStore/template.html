@@ -35,7 +35,7 @@
         </div>
         <div class="hotel__topbar-item">
           <img src="https://cdn.shopify.com/s/files/1/0553/4783/9132/files/icon-quality_48x.png" alt="Hotelkwaliteit" width="16" height="16" class="hotel__topbar-item-icon"/>
-          Hotelkwaliteit voor bij u thuis
+          Hotelkwaliteit voor thuis
         </div>
         <div class="hotel__topbar-item">
           <img src="https://cdn.shopify.com/s/files/1/0553/4783/9132/files/icon-deals_48x.png" alt="Beste aanbiedingen" width="16" height="16" class="hotel__topbar-item-icon"/>
@@ -93,6 +93,9 @@
             </div>
           </form>
             [loop name="form_script" min="0"]
+              [text name="script" editor="poor"]
+            [/loop]
+            [loop name="extra_script" min="0"]
               [text name="script" editor="poor"]
             [/loop]
           [/loop]
