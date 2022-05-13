@@ -158,10 +158,10 @@
             <div class="row p-t-32 js-pause-container hide">
               <div class="pause__title">
                 <i class="fa-solid fa-circle-exclamation"></i>
-                <h3 class="p-b-8">Weet u het zeker? U kunt ook voor een tijdelijke pauze kiezen!</h3>
+                <h3 class="p-b-8">Weet je het zeker? Je kan ook voor een tijdelijke pauze kiezen!</h3>
               </div>
               <div class="p-b-16">
-                Zo ontvangt u automatisch weer <b>de beste aanbiedingen</b> op het moment dat u dat wilt.
+                Zo ontvang je automatisch weer <b>de beste aanbiedingen</b> op het moment dat jij dat wilt.
               </div>
               <div class="p-b-8">
                 <input class="radio" type="radio" name="dbfield177" id="pause-1" value="1maand">
@@ -182,7 +182,7 @@
                 </label>
               </div>
               <div class="pause__reset js-pause-reset">
-                Klik <u>hier</u> om uw tijdelijke pauze keuze te herstellen
+                Klik <u>hier</u> om jouw tijdelijke pauze keuze te herstellen
               </div>
             </div>
             {/if}
@@ -209,7 +209,7 @@
               <img class="footer__logo" alt="Luxury Hotel Company logo" src="https://luxuryhotelcompany.com/img/logo.e7714767.png"/>
             </a>
             <div class="footer__text-small">
-              Snel, veilig, en betalen wanneer het u uitkomt
+              Snel, veilig, en betalen wanneer het jou uitkomt
             </div>
             <div class="pagefooter__payment-row" data-v-e0f3c8f8="">
               <img src="https://luxuryhotelcompany.com/img/icon-visa.f8466316.svg">
@@ -229,7 +229,7 @@
             </a>
           </div>
           <div class="footer__questions">
-            <div class="item-second footer__title p-b-16">Heeft u een vraag?</div>
+            <div class="item-second footer__title p-b-16">Heb je een vraag?</div>
             <div class="footer__item">
               <div class="p-b-16">
                 Bekijk onze meest gestelde vragen.
@@ -262,9 +262,10 @@
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
-    <!-- Retrieve current frequency as hidden element -->
+    <!-- Retrieve current frequency as hidden element, can use this in scripts later -->
     <input id="js-initial-frequency-hidden" type="hidden" value="{$profile.EM_Frequency}"/>
 
+    [literal]
     <!-- Add required property to required text fields based on required classes -->
     <script type="text/javascript">
       var requiredFields = document.querySelectorAll('.required');
@@ -272,17 +273,7 @@
         requiredField.required = true;
       });
     </script>
-
-    [literal]
-    <!-- Retrieve date field and reverse the order, because Copernica saves dates as american date format -->
-    <script type="text/javascript">
-      if (document.getElementsByName('dbfield35')[0]) {
-        var birthdayField = document.getElementsByName('dbfield35')[0];
-        var birthdayValue = birthdayField.value;
-        birthdayValue = birthdayValue.split('-').reverse().join('-');
-        birthdayField.value = birthdayValue;
-      }
-    </script>
     [/literal]
+    
   </body>
 </html>

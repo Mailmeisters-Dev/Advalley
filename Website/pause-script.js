@@ -1,6 +1,6 @@
 <script type="text/javascript">
       var initialFrequencyValue = document.getElementById('js-initial-frequency-radio').value;
-    </script>
+</script>
 
 <!-- Open / close pause element and reset checked radios -->
 <script type="text/javascript">
