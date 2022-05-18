@@ -10,9 +10,19 @@ a {
   text-decoration: underline;
 }
 
+table\0 {
+  width: 100%!important;
+}
+
 .outlook-width-48\0{
   width: 48px!important;
   max-width:48px!important;
+}
+
+@media (prefers-color-scheme: dark) {
+  .small-spacer-dm {
+    background-color: #ffffff;
+  }
 }
 
 @media (max-width: 600px) {
@@ -125,21 +135,21 @@ a {
 
   .m-bgimage-center {
     background-position: bottom center !important;
-    height: 275px !important;
+    height: 250px !important;
     width: auto !important;
     background-image: url(https://cdn.mcauto-images-production.sendgrid.net/496b953602f1314f/ae8528ed-32f8-473f-9d25-8fde369afb9f/640x275.jpg) !important;
   }
 
   .m-bgimage-center-happytravels {
     background-position: bottom center !important;
-    height: 275px !important;
+    height: 215px !important;
     width: auto !important;
     background-image: url(https://cdn.mcauto-images-production.sendgrid.net/496b953602f1314f/3f625a6a-830b-49e2-9fb0-5a8fdcbc0670/600x275.jpg) !important;
   }
 
-  .m-height-105 {
-    height: 105px !important;
-    line-height: 105px !important;
+  .m-height-75 {
+    height: 75px !important;
+    line-height: 75px !important;
   }
 
   .m-border-r-0 {
