@@ -1,10 +1,21 @@
+@font-face {
+  font-family: GT Flexa;
+  src: url('https://cdn.shopify.com/s/files/1/0553/4783/9132/t/26/assets/GT-Flexa-Regular-Trial.woff2')
+}
+
+@font-face {
+  font-family: GtflexaBlack;
+  src: url(https://vialuxury.com/fonts/GT-Flexa-Standard-Black.otf);
+}
+
+
 body {
   margin: 0;
   padding: 0;
-  font-size: 15px;
-  color: #000;
-  line-height: 22px;
-  font-family: 'Roboto', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  color: #1a1e1e;
+  line-height: 24px;
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -18,7 +29,7 @@ body {
 h1,
 h2,
 h3 {
-  font-family: 'Lora', 'Roboto', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: 'GT Flexa', serif;
   padding: 0;
   margin: 0;
 }
@@ -31,14 +42,14 @@ h1 {
 
 h2 {
   font-size: 29px;
-  line-height: 32px;
-  font-weight: 500;
+  line-height: 36px;
+  font-weight: 400;
 }
 
 h3 {
   font-size: 20px;
   line-height: 32px;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .font-roboto {
@@ -111,12 +122,9 @@ img {
   display: none;
 }
 
-.header {
+.header__top {
   background-color: rgba(0, 0, 0, .8);
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 85px;
+  height: 48px;
   width: 100%;
   z-index: 200;
   display: -webkit-box;
@@ -125,60 +133,32 @@ img {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  justify-content: space-between;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.header__usps {
+  display: flex;
+}
+
+.header__usp {
+  color: #A3A5A5;
+  margin-left: 40px;
+}
+
+
+.header__review {
+  position: relative;
+  width: 126px;
+  margin-right: 40px;
 }
 
 .header__logo {
-  width: 80px;
+  width: 90px;
   display: block;
-  margin: 0 auto;
-}
-
-.header__placeholder {
-  height: 85px;
-}
-
-.hotel__topbar {
-  width: 100%;
-  height: 64px;
-  background-color: #f0ebe7;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin: 0 auto;
-}
-
-.hotel__topbar-wrapper {
-  max-width: 850px;
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin: 0 auto;
-  opacity: 56%;
-}
-
-.hotel__topbar-item {
-  font-size: 15px;
-  line-height: 22px;
-  color: #000;
-}
-
-.hotel__topbar-item svg {
-  width: 30px;
-  height: 30px;
-  display: inline-block;
-  margin-right: 4px;
-  vertical-align: -7px;
+  margin-left: 56px;
+  margin-top: 24px;
 }
 
 .main {
@@ -194,7 +174,7 @@ img {
 }
 
 .main__image-background {
-  background-image: url("https://files.luxuryhotelcompany.com/uploads/filter_set/image/46/large_Mademoiselle_Paris_-HP_met_overlay.png");
+  background-image: url("https://vialuxury.com/assets/header_optimized.4b26608c.jpg");
   width: 100%;
   height: 300px;
   background-size: cover;
@@ -269,6 +249,7 @@ img {
   position: relative;
   padding-left: 2.2em;
   cursor: pointer;
+  font-size: 14px;
  }
  
  [type="checkbox"]:not(:checked) + label:before, [type="checkbox"]:checked + label:before {
@@ -277,13 +258,14 @@ img {
   width: 16px;
   height: 16px;
   background: #FFFFFF 0% 0% no-repeat padding-box;
-  border: 1px solid #1a1e1e;
+  border: 1px solid #515454;
   top:3px;
   left: 2px;
  }
 
  [type="checkbox"]:checked + label:before {
    background-color: #1a1e1e!important;
+   border: 1px solid #1a1e1e;
  }
  
  [type="checkbox"]:not(:checked) + label:after, [type="checkbox"]:checked + label:after {
@@ -307,20 +289,6 @@ img {
   opacity: 1;
   transform: scale(1);
  }
- 
- .checkbox-check {
-  position: absolute;
-  top: 5px;
-  left: 8px;
-  z-index: 10;
-  -webkit-transform: rotate(40deg); 
-  transform: rotate(40deg);
-  border-bottom: 2px solid #FFF;
-  border-right: 2px solid #FFF;
-  height: 10px;
-  width: 6px;
- }
-
 
 /* Radio button styling */
 [type="radio"]:not(:checked),
@@ -332,20 +300,20 @@ img {
 [type="radio"]:not(:checked)+label,
 [type="radio"]:checked+label {
   position: relative;
-  padding-left: 49px;
+  padding-left: 38px;
   cursor: pointer;
-  margin-bottom: 4px;
-  padding-top: 7px;
+  padding-top: 2px;
+  font-size: 14px;
 }
 
 [type="radio"]:not(:checked)+label:before,
 [type="radio"]:checked+label:before {
   content: '';
   position: absolute;
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
   background: #FFFFFF 0% 0% no-repeat padding-box;
-  border: 2px solid #E5DED6;
+  border: 1px solid #515454;
   border-radius: 50px;
   top: 2px;
   left: 2px;
@@ -354,24 +322,24 @@ img {
   transition: all 0.2s ease;
 }
 
-[type="radio"]:checked+label:before {
-  border: 2px solid #1a1e1e;
-}
-
 [type="radio"]:not(:checked)+label:after,
 [type="radio"]:checked+label:after {
   content: '';
-  width: 22px;
-  height: 22px;
+  width: 24px;
+  height: 24px;
   color: #FFF;
-  background: #1a1e1e 0% 0% no-repeat padding-box;
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4Igp3aWR0aD0iMjQiIGhlaWdodD0iMjQiCnZpZXdCb3g9IjAgMCAyNCAyNCIKc3R5bGU9IiBmaWxsOiNmZmZmZmY7Ij48cGF0aCBkPSJNIDE5Ljk4MDQ2OSA1Ljk5MDIzNDQgQSAxLjAwMDEgMS4wMDAxIDAgMCAwIDE5LjI5Mjk2OSA2LjI5Mjk2ODggTCA5IDE2LjU4NTkzOCBMIDUuNzA3MDMxMiAxMy4yOTI5NjkgQSAxLjAwMDEgMS4wMDAxIDAgMSAwIDQuMjkyOTY4OCAxNC43MDcwMzEgTCA4LjI5Mjk2ODggMTguNzA3MDMxIEEgMS4wMDAxIDEuMDAwMSAwIDAgMCA5LjcwNzAzMTIgMTguNzA3MDMxIEwgMjAuNzA3MDMxIDcuNzA3MDMxMiBBIDEuMDAwMSAxLjAwMDEgMCAwIDAgMTkuOTgwNDY5IDUuOTkwMjM0NCB6Ij48L3BhdGg+PC9zdmc+');
+  background-size: 16px;
+  background-repeat: no-repeat;
   border-radius: 50px;
   position: absolute;
-  top: 7px;
-  left: 7px;
-  -webkit-transition: all .2s;
-  -o-transition: all .2s;
-  transition: all .2s;
+  top: 6px;
+  left: 6px;
+}
+
+[type="radio"]:checked+label:before {
+  background: #1a1e1e;
+  border: 1px solid #1a1e1e;
 }
 
 [type="radio"]:not(:checked)+label:after {
@@ -603,6 +571,9 @@ img {
   .footer__logo {
     width: 128px;
     padding-bottom: 5rem;
+  }
+  .footer__list {
+    width: 170px;
   }
   .footer__payment {
     justify-content: center;
