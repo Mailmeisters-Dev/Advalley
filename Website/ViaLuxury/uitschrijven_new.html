@@ -1,0 +1,963 @@
+<form method="post" enctype="multipart/form-data" action="https://unsubscribe.luxuryhotelcompany.com/?webform=2"
+  name="webform_2">
+  <div class="webform" id="webform_2">
+    <div class="row">
+      <h3 class="p-b-16">Nieuwsbrief frequentie</h3>
+      <input class="hidden" type="hidden" id="48e4bd688d625ff7caad8ca84ab3c81c" name="48e4bd688d625ff7caad8ca84ab3c81c" value="sybren@mailmeisters.nl">
+      <input id="js-initial-frequency-radio" type="hidden" name="0913320b68944ba516bf347f09bc3388" value="{$profile.EM_Frequency}"/>
+      <input class="hidden" type="hidden" id="js-initial-status-hidden" name="2aa2300cd8f95d94df63b39372660df5">
+      <div class="p-b-8">
+        <input class="radio" type="radio" name="0913320b68944ba516bf347f09bc3388" value="alles" id="0913320b68944ba516bf347f09bc3388_1">
+        <label class="form-check-label" for="0913320b68944ba516bf347f09bc3388_1">
+          Dagelijks
+        </label>
+      </div>
+      <div class="p-b-8">
+        <input type="radio" name="0913320b68944ba516bf347f09bc3388" value="2_week" id="0913320b68944ba516bf347f09bc3388_2">
+        <label class="form-check-label" for="0913320b68944ba516bf347f09bc3388_2">
+          2x per week
+        </label>
+      </div>
+      <div class="p-b-8">
+        <input type="radio" name="0913320b68944ba516bf347f09bc3388" value="1_week" id="0913320b68944ba516bf347f09bc3388_3">
+        <label class="form-check-label" for="0913320b68944ba516bf347f09bc3388_3">
+          1x per week
+        </label>
+      </div>
+      <div class="p-b-8">
+        <input type="radio" name="0913320b68944ba516bf347f09bc3388" value="1_maand" id="0913320b68944ba516bf347f09bc3388_4">
+        <label class="form-check-label" for="0913320b68944ba516bf347f09bc3388_4">
+          1x per maand
+        </label>
+      </div>
+      <div class="p-b-8">
+        <input type="radio" name="0913320b68944ba516bf347f09bc3388" value="geen" id="0913320b68944ba516bf347f09bc3388_5">
+        <label class="form-check-label" for="0913320b68944ba516bf347f09bc3388_5">
+          Geen
+        </label>
+      </div>
+    </div>
+    <div class="row p-t-32 js-pause-container hide">
+      <div class="pause__title">
+        <i class="fa-solid fa-circle-exclamation"></i>
+        <h3 class="p-b-8">Weet je het zeker? Je kan ook voor een tijdelijke pauze kiezen!</h3>
+      </div>
+      <div class="p-b-16">
+        Zo ontvang je automatisch weer <b>de beste aanbiedingen</b> op het moment dat jij dat wilt.
+      </div>
+      <div class="p-b-8">
+        <input class="radio" type="radio" name="b66d526119acbb20fee70b402caa4111" value="1maand" id="b66d526119acbb20fee70b402caa4111_1">
+        <label class="form-check-label" for="b66d526119acbb20fee70b402caa4111_1">
+          1 maand
+        </label>
+      </div>
+      <div class="p-b-8">
+        <input class="radio" type="radio" name="b66d526119acbb20fee70b402caa4111" value="2maanden" id="b66d526119acbb20fee70b402caa4111_2">
+        <label class="form-check-label" for="b66d526119acbb20fee70b402caa4111_2">
+          2 maanden
+        </label>
+      </div>
+      <div class="p-b-8">
+        <input class="radio" type="radio" name="b66d526119acbb20fee70b402caa4111" value="6maanden" id="b66d526119acbb20fee70b402caa4111_3">
+        <label class="form-check-label" for="b66d526119acbb20fee70b402caa4111_3">
+          6 maanden
+        </label>
+      </div>
+      <div class="pause__reset js-pause-reset">
+          Klik <u>hier</u> om jouw tijdelijke pauze keuze te herstellen
+      </div>
+    </div>
+    <div class="form__submit p-t-32">
+      <input class="submit__button" name="submit" type="submit" value="Voorkeuren wijzigen">
+    </div>
+  </div>
+</form>
+
+<script type="text/javascript">
+  var initialFrequencyValue = document.getElementById('js-initial-frequency-radio').value;
+</script>
+
+
+<!-- Open / close pause element and reset checked radios -->
+<script type="text/javascript">
+  // Retrieve frequency and pause radios
+  var frequencyRadios = document.querySelectorAll('input[name="0913320b68944ba516bf347f09bc3388"]');
+  var pauseRadios = document.querySelectorAll('input[name="b66d526119acbb20fee70b402caa4111"]');
+
+  // On load of page, set the current frequency radio to checked (this type of form doesnt automatically set it to checked based on database value)
+  var selectorCurrentFrequency = '[value="' + initialFrequencyValue + '"]';
+  document.querySelectorAll(selectorCurrentFrequency)[1].checked = true;
+
+  // Retrieve button to change innerText later
+  var submitButton = document.querySelector('.submit__button');
+
+  // Create array from frequencyRadios so we can get the specific, needed radio for functions
+  var frequencyRadiosArray = Array.from(frequencyRadios);
+
+  // This is 'Geen' radio
+  var openPauseElement = frequencyRadiosArray[frequencyRadiosArray.length -1];
+
+  // All radio's but 'Geen'
+  var closePauseElement = frequencyRadiosArray.slice(0, -1);
+
+  // The pause element to show or hide
+  var pauseElement = document.querySelector('.js-pause-container');
+
+  // Called from clicking frequency radios
+  function hideShowPauseElement(action) {
+    if (action === 'hide') {
+      pauseElement.setAttribute('class', 'row p-t-32 js-pause-container hide');
+    } else {
+      pauseElement.setAttribute('class', 'row p-t-32 js-pause-container');
+    }
+  }
+
+  function resetPauseRadios() {
+    pauseRadios.forEach(function (radio) {
+      radio.checked = false;
+    });
+  };
+
+  function resetFrequencyRadios() {
+    frequencyRadios.forEach(function (radio) {
+      radio.checked = false;
+    });
+  }
+
+  // We created a dummy, hidden checkbox with the Initial frequency which is checked when customer selects a temporary pause. When customer then selects a frequency radio we uncheck this
+  // Retrieve the hidden radio
+  var hiddenInitialFrequencyRadio = frequencyRadiosArray[0];
+
+  function checkInitialFrequency() {
+    hiddenInitialFrequencyRadio.checked = true;
+  }
+
+  function uncheckInitialFrequency() {
+    hiddenInitialFrequencyRadio.checked = false;
+  }
+
+  // If customer clicks 'Geen' radio: set status to 'Unsubscribed' otherwise set to 'Subscribed'
+  var hiddenStatusValue = document.getElementById('js-initial-status-hidden');
+
+  function setStatusUnsubscribed() {
+    hiddenStatusValue.value = 'Unsubscribed';
+  }
+
+  function setStatusSubscribed() {
+    hiddenStatusValue.value = 'Subscribed';
+  }
+
+  // Call function to hide or show pause element based on which radio is clicked
+  frequencyRadios.forEach(function (radio, index) {
+    radio.addEventListener('click', function() {
+      // Check if customer clicks frequency radio 'Geen' or a different one
+      if (frequencyRadios[index] == openPauseElement) {
+        hideShowPauseElement('show');
+        submitButton.value = 'Afmelden voor nieuwsbrief';
+        setStatusUnsubscribed();
+      } else {
+        hideShowPauseElement('hide');
+        submitButton.value = 'Voorkeuren wijzigen';
+        setStatusSubscribed();
+      }
+      // If customer clicks any frequency radio: uncheck all pause radios
+      resetPauseRadios();
+      // If customer clicks any frequency radio: uncheck the Initial frequency radio
+      uncheckInitialFrequency(); 
+    })
+  });
+
+  // If customer clicks any pause radio: change button text, uncheck all frequency radios and check the Initital frequency radio
+  pauseRadios.forEach(function (radio) {
+    radio.addEventListener('click', function() {
+      submitButton.value = 'Tijdelijke pauze bevestigen';
+      resetFrequencyRadios();
+      checkInitialFrequency();
+      setStatusSubscribed();
+    });
+  });
+
+  // If customer clicks reset pause text under the radios: change button text, set frequency to 'Dagelijks', uncheck all pause radios and uncheck the Initial frequency radio
+  var resetPause = document.querySelector('.js-pause-reset');
+  resetPause.addEventListener('click', function() {
+    submitButton.value = 'Voorkeuren wijzigen';
+    frequencyRadiosArray[1].checked = true;
+    hideShowPauseElement('hide');
+    resetPauseRadios();
+    uncheckInitialFrequency();
+    setStatusSubscribed();
+  });
+  
+</script>
+
+<script type="text/javascript">
+
+  /**
+   *  Script for webforms.
+   */
+  
+  /**
+   *  List of error messages
+   *  @var array
+   */
+  var webform_error_messages = {"required_field_missing":"Geen waarde ingevuld in veld %field.","email_field_wrong":"Geen geldig e-mailadres ingevuld in veld %field.","number_field_wrong":"Geen geldig nummer ingevuld in veld %field.","tel_field_wrong":"Het veld '%field' bevat niet alleen numerieke waarden, maar ook optionele -, + tekens.","date_field_wrong":"Geen datum ingevuld in veld %field.","dateselect_field_wrong":"Geen geldige datum ingevuld in veld %field.","datetime_field_wrong":"Het veld '%field' bevat geen datum en tijd.","datetimeselect_field_wrong":"Het veld '%field' bevat geen geldige datum en tijd.","passwords_do_not_match":"Niet twee keer hetzelfde wachtwoord ingevuld bij veld %field.","uploadfield_field_wrong":"De file in '%field' is niet van het juiste format of is groter dan de maximale upload grootte.","captchafield_field_wrong":"Het Captcha-veld is fout. Probeer het opnieuw.","text_field_wrong":"Het veld '%field' heeft niet het juiste formaat."}
+  
+  /**
+   *  Error checker array. The functions that runs when the form is submitted.
+   */
+  var webform_error_checkers = new Array();
+  
+  /**
+   *  The current language we are using.
+   *  @var String
+   */
+  var webform_language = "nl_NL";
+  
+  /**
+   *  This function is called to initialize a webform
+   *  @param  string      ID of the webform
+   *  @param  fields      The fields in the form
+   */
+  function initWebform(webformID, fields)
+  {
+      // register a handler for the form
+      var formname = 'webform_'+webformID;
+  
+      // get a form element
+      var form = document.forms[formname];
+  
+      // sometimes we want to find element by it's id
+      var findElementById = function(id) {
+  
+          // array that we will use to keep track elements to check
+          var elements = [];
+  
+          // we always start from form element
+          elements.push(form);
+  
+          // we want to check all elements (and we have at least one on start)
+          do {
+              // get the current element
+              var current = elements.shift();
+  
+              // check if we found an element
+              if (current.getAttribute('id') == id) return current;
+  
+              // get element childs
+              var children = current.children;
+  
+              // push all childrens into elements array
+              for(var i = 0; i < children.length; i++)
+                  elements.push(children[i]);
+  
+          } while(elements.length > 0);
+  
+          // we did not found a desired element
+          return null;
+      }
+  
+      // sometimes we want to get elements by names
+      function findElementsByName(name)
+      {
+          // elements to check
+          var elements = [];
+  
+          // result to return
+          var results = [];
+  
+          // start from form
+          elements.push(form);
+  
+          do {
+              // get the current element
+              var current = elements.shift();
+  
+              // check if current element have desired name
+              if (current.getAttribute('name') == name) results.push(current);
+  
+              // get the children of current element
+              var children = current.children;
+  
+              // add all childrens to elemetnts to check
+              for (var i = 0; i < children.length; i++)
+                  elements.push(children[i]);
+          } while(elements.length > 0);
+  
+          // return results
+          return results;
+      }
+  
+      // Add error checkers to specific elements.
+      for (id in fields)
+      {
+          // locate field.
+          var field = fields[id];
+          
+          // locate element
+          var element = findElementById(id);
+  
+          // Add a error checker.
+          webform_add_error_checker(element, field);
+          
+          // if we have a regex, add a checker
+          if (field.regex) webform_add_regex_checker(element, field);
+      }
+      
+      // does this webform has a captcha?
+      var hasCaptcha = document.getElementById('recaptcha') != null;
+      
+      // process the form
+      var doProcessForm = function(event) {
+          // array of encountered errors
+          var errors = [];
+  
+          // Loop trough the fields and attach input checks.
+          for (id in fields)
+          {
+              // leap out if we already discovered too many errors
+              if (errors.length >= 4) break;
+  
+              // Locate field.
+              var field = fields[id];
+              var value = false;
+              var element = findElementById(id);
+  
+              // Value of dropdown.
+              if (field.type == "dropdown")
+              {
+                  var selectIndex = element.selectedIndex;
+                  value = element.options[selectIndex].text;
+              }
+              else if (field.type == "password_repeat")
+              {
+                  // matching field
+                  if (document.getElementById(element.id).value != findElementById(id+'_repeat').value)
+                  {
+                      // an error was detected
+                      errors.push(get_webform_error_message('passwords_do_not_match', {field: field.label}));
+  
+                      // continue to the next field.
+                      continue;
+                  }
+  
+                  value = document.getElementById(element.id).value;
+              }
+              else if (field.type == "interest")
+              {
+                  // Value for the interest field
+                  value = element.checked;
+              }
+              else if (field.type == "uploadfield")
+              {
+                  // Value for the uploadfield.
+                  value = document.getElementById(element.id).value;
+              }
+              else if (field.type == "radio_buttons")
+              {
+                  // for radio buttons we need to get the (inputs) options by name because the inputs have an id of id_x
+                  var options = findElementsByName(id);
+                  for (var i=0; i < options.length; i++)
+                  {
+                      if (!options[i].checked) continue;
+  
+                      value = options[i].value;
+                  }
+              }
+              else if (field.type == "checkbox")
+              {
+                  if (element.checked)
+                  {
+                      value = document.getElementById(element.id).value
+                  }
+                  else
+                  {
+                      value = '';
+                  }
+              }
+              else
+              {
+                  // Value of all other inputs.
+                  value = document.getElementById(element.id).value;
+              }
+  
+              // Is case sensitive/strict mode enabled for this field?
+              if (field.casesensitive)
+              {
+                  // Trim the value for text fields
+                  value = webform_trim_value(document.getElementById(element.id).value);
+              }
+  
+              // check if this field is required and not filled in
+              if (field.required && !value)
+              {
+                  // an error was detected
+                  errors.push(get_webform_error_message('required_field_missing', {field: field.label}));
+  
+                  // continue to the next field.
+                  continue;
+              }
+  
+              // check if there is a error checker waiting.
+              var checker = webform_error_checkers[id];
+  
+              // Check if the checker is something and run it, when true returns there is nothing wrong.
+              if (checker && !checker())
+              {
+                  errors.push(get_webform_error_message(field.type+'_field_wrong', {field: field.label}));
+              }
+          }
+  
+          // ok if no errors were found
+          if (errors.length == 0)
+          {
+              // convert any date fields to the english date format.
+              for (id in fields)
+              {
+                  // Locate field.
+                  var field = fields[id];
+                  if (field.type != "date") continue;
+  
+                  // get the element
+                  var element = findElementById(id);
+  
+                  // Convert the date format.
+                  document.getElementById(element.id).value = webform_convert_date(document.getElementById(element.id).value, webform_language);
+              }
+              return true;
+          }
+  
+          // generate error message
+          var message = '';
+          for (var i=0; i<errors.length; i++)
+          {
+              // append to message
+              message += errors[i]+"\n";
+          }
+  
+          // show error message
+          var popAlert = window.alert;
+          popAlert(message);
+          if(hasCaptcha) grecaptcha.reset();
+  
+          // cancel submit
+          if (event) 
+          {
+              event.returnValue = false;
+              event.preventDefault();
+          }
+          return false;
+      };
+      
+      // handle the onsubmit event, store the event in a variable to pass it to other functions later
+      document.forms[formname].onsubmit = function(event)
+      {
+          // if captcha is enabled, check captcha first.
+          // check if there is a grecaptcha response
+          if (hasCaptcha && grecaptcha.getResponse() == "") window.alert(get_webform_error_message('captchafield_field_wrong'));
+          
+          // process the form
+          return doProcessForm(event);
+      }
+  }
+  
+  /**
+   *  Function to get an error message
+   *  @param  string  Identifier of the error
+   *  @param  array   Associative array of variables that need to be filled in
+   */
+  function get_webform_error_message(identifier, vars)
+  {
+      var popAlert = window.alert;
+      var string = webform_error_messages[identifier];
+      if (string == undefined) popAlert(identifier);
+      for (var name in vars) string = string.replace('%'+name, vars[name]);
+      return string;
+  }
+  
+  /**
+   *  Add's input control functionality to the user input.
+   *  @param html object
+   *  @param field object
+   */
+  function webform_add_error_checker(element, field)
+  {
+      switch (field.type)
+      {
+          case "text":
+  
+              break;
+          case "password":
+  
+              break;
+          case "email":
+              webform_error_checkers[element.id] = function()
+              {
+                  // not required and empty?
+                  if (!field.required && document.getElementById(element.id).value.trim() == "") return true;
+                  return webform_email_check(element);
+              };
+              break;
+          case "tel":
+              webform_error_checkers[element.id] = function()
+              {
+                  // not required and empty?
+                  if (!field.required && document.getElementById(element.id).value.trim() == "") return true;
+                  return webform_phone_check(element);
+              };
+              break;
+          case "number":
+              webform_error_checkers[element.id] = function()
+              {
+                  // not required and empty?
+                  if (!field.required && !document.getElementById(element.id).value.length) return true;
+                  return webform_number_check(element);
+              };
+              break;
+              
+          case "date":
+              webform_error_checkers[element.id] = function()
+              {
+                  // not required and empty?
+                  if (!field.required && document.getElementById(element.id).value.trim() == "") return true;
+                  return webform_date_check(element);
+              }
+  
+              // Change the date from yyyy-mm-dd to the date of the current language.
+              document.getElementById(element.id).value = webform_convert_date(document.getElementById(element.id).value, webform_language);
+              break;
+  
+           case "dateselect":
+              webform_error_checkers[element.id] = function()
+              {
+                  // not required and empty?
+                  if (!field.required && document.getElementById(element.id).value.trim() == "") return true;
+                  return webform_dateselect_check(element);
+              }
+              break;
+              
+          case "datetime":
+              webform_error_checkers[element.id] = function()
+              {
+                  // not required and empty?
+                  if (!field.required && document.getElementById(element.id).value.trim() == "") return true;
+                  return webform_datetime_check(element);
+              }
+              break;
+  
+           case "datetimeselect":
+              webform_error_checkers[element.id] = function()
+              {
+                  // not required and empty?
+                  if (!field.required && document.getElementById(element.id).value.trim() == "") return true;
+                  return webform_datetimeselect_check(element);
+              }
+              break;
+  
+          case "uploadfield":
+              webform_error_checkers[element.id] = function()
+              {
+                  // not required and empty?
+                  if (!field.required && document.getElementById(element.id).value.trim() == "") return true;
+                  return webform_upload_check(element, field);
+              }
+              break;
+      }
+  }
+  
+  /**
+   *  This function adds a checker function to an element to see if the value
+   *  matches the given regex. This check needs to happen alongside any other
+   *  checks that are defined for the element, so if a checker already exists
+   *  this function will use that existing check to build a composite checker
+   *  function and append the combined checker to the webform element. 
+   *  @param html object
+   *  @param field object
+   */
+  function webform_add_regex_checker(element, field)
+  {
+      // store the new checker in a variable
+      var new_checker = function()
+      {
+          // not required and empty?
+          if (!field.required && document.getElementById(element.id).value.trim() == "") return true;
+          
+          // get the value
+          var value = document.getElementById(element.id).value;
+          
+          // the value cannot be longer than 100 chars to keep regex functionality safe
+          if (value.length >= 100) return false;
+          
+          // store the raw regex of the field
+          var raw_regex = field.regex;
+          
+          // check if the full regex was delivered instead of a regex pattern
+          if (raw_regex.charAt(0) == '/' && raw_regex.lastIndexOf('/') != 0)
+          {
+              // get the pattern of the regex (between the first and last delimiter)
+              var pattern = raw_regex.slice(1,raw_regex.lastIndexOf("/"));
+              
+              // get the flags 
+              var flags = raw_regex.slice(raw_regex.lastIndexOf("/") + 1);
+              
+              // construct the regex object with the flag
+              var regex = new RegExp(pattern, flags);
+          }
+          
+          // we only have a pattern
+          else
+          {
+              // construct the regex object with the pattern
+              var regex = new RegExp(raw_regex);
+          }
+          
+          // get the matches between the regex and the field value
+          var match = value.match(regex);
+          
+          // check if the value matches the field regex
+          return match != null && value == match[0];
+      }
+      
+      // check if we already have a checker for this element
+      if (element.id in webform_error_checkers)
+      {
+           // if this is the case, store the old checker in a variable
+           var old_checker = webform_error_checkers[element.id];
+           
+           // combine the two
+           var comb_checker = function() { return old_checker() && new_checker(); }
+           
+           // store the combined checker
+          webform_error_checkers[element.id] = comb_checker;
+      }
+      else
+      {
+          // we have no checker yet, store the new one
+          webform_error_checkers[element.id] = new_checker;
+      }
+  }
+  
+  /**
+   *  This function checks if an element value is an email.
+   *  @param element
+   *  @return boolean
+   */
+  function webform_email_check(element)
+  {
+      var value = document.getElementById(element.id).value;
+      return value.match(/^[a-zA-Z0-9_*]+([+._\-][_*a-zA-Z0-9]+)*[-]*@[a-zA-Z0-9]+([._\-][a-zA-Z0-9]+)*\.[a-zA-Z]{2,10}$/);
+  }
+  
+  /**
+   *  This function checks if a element value is a phone number
+   *  @param element
+   *  @return boolean
+   */
+  function webform_phone_check(element)
+  {
+      
+      var value = document.getElementById(element.id).value;
+      return value.match(/^([0-9\-()\/\+\.\s])+$/);
+  }
+  
+  /**
+   *  This function checks if a element value is a number.
+   *  @param element
+   *  @return boolean
+   */
+  function webform_number_check(element)
+  {
+      var value = document.getElementById(element.id).value;
+      return value.match(/(^\d+$)|^$/);
+  }
+  
+  /**
+   *  This function checks if an element value is a date.
+   *  @param element
+   *  @return boolean
+   */
+  function webform_date_check(element)
+  {
+      var value = document.getElementById(element.id).value;
+  
+      // When a field is empty, the answer is always true.
+      if (value == "") return true;
+  
+      switch (webform_language)
+      {
+          case "english":
+              return value.match(/^((19|20)\d\d)[- /.](0[0-9]|1[012]|[0-9])[- /.]([1-9]|[012][0-9]|3[01])$/);
+              break;
+          default:
+              // The rest, dutch, german, italian, russian, greece, etc are using the europian dd-mm-yyyy style.
+              return value.match(/^([1-9]|[012][0-9]|3[01])[- /.](0[0-9]|1[012]|[0-9])[- /.]((19|20)\d\d)$/);
+              break;
+      }
+  }
+  
+  /**
+   *  This function checks if an element value is a time.
+   *  !!! The format used here is the official SQLite datetime, this is so that it can be stored in a datetime row
+   *  @param element
+   *  @return boolean
+   */
+  function webform_datetime_check(element)
+  {
+      var value = document.getElementById(element.id).value;
+  
+      // When a field is empty, the answer is always true.
+      if (value == "") return true;
+  
+      // the following regex is very strict because the entered string MUST fit the SQL datetime format in order to be accepted by a database
+      return value.match(/^((19|20)\d\d)-(0[0-9]|1[012]|[0-9])-([1-9]|[012][0-9]|3[01]) ([01]\d|2[0-3]):([0-5]\d):([0-5]\d)$/);
+  }
+  
+  /**
+   *  This function checks if a date select value is a date.
+   *  @param element
+   *  @return boolean
+   */
+  function webform_dateselect_check(element)
+  {
+      var value = document.getElementById(element.id).value;
+  
+      var year = document.getElementById(element.id+'_year').value;
+      var month = document.getElementById(element.id+'_month').value;
+      var day = document.getElementById(element.id+'_day').value;
+  
+      if ((month == 2 || month == 4 || month == 6 || month == 9 || month == 11) && day == 31)
+          return false;
+      else if (month == 2 && day == 30 && year != 8228) // extra leap year
+          return false;
+      else if (month == 2 && day == 29 && year != 8228)
+          return (new Date(year, 1, 29).getDate() == 29); // months start counting at zero
+      else
+          return true;
+  }
+  
+  /**
+   *  This function checks if a time select value is a time.
+   *  @param element
+   *  @return boolean
+   */
+  function webform_datetimeselect_check(element)
+  {
+      var value = document.getElementById(element.id).value;
+  
+      // use the date checker to validate years and months
+      if (!webform_dateselect_check(element)) return false;
+  
+      var hour   = document.getElementById(element.id+'_hour').value;
+      var minute = document.getElementById(element.id+'_minute').value;
+  
+      if (hour >= 0 && hour <= 23 && minute >= 0 && minute <= 59) return true;
+      
+      return false;
+  }
+  
+  /**
+   *  This function checks if the uploaded file is correct.
+   *  @param element
+   *  @return  boolean
+   */
+  function webform_upload_check(element, field)
+  {
+      var uploadElement = document.getElementById(element.id);
+      var value = uploadElement.value;
+  
+      // When a field is empty, the answer is always true.
+      if (value == "") return true;
+  
+      // Generate file extensions based on the mimetypes.
+      var extensions = new Array();
+      for (var i=0; i < field.mimetypes.length; i++)
+      {
+          var mimetype = field.mimetypes[i];
+  
+          var pre = mimetype.split('/')[0];
+          var post = mimetype.split('/')[1];
+  
+          // Find the appriopate extension for this mimetype.
+          if (pre == "image")
+          {
+              extensions.push(post);
+          }
+          else if (pre == "application")
+          {
+              if (post.match("excel"))
+              {
+                  extensions.push('xls');
+                  extensions.push('xlsx');
+              }
+              else if (post.match("word"))
+              {
+                  extensions.push('doc');
+                  extensions.push('docx');
+              }
+              else if (post.match("pdf"))
+                  extensions.push("pdf");
+              else if (post.match("zip"))
+                  extensions.push("zip");
+          }
+      }
+  
+      // Extract the extension of the file.
+      var ext = value.slice(value.lastIndexOf('.')+1).toLowerCase();
+  
+      // Are we limited to extensions?
+      if (extensions.length > 0)
+      {
+          // See if we can find the extension.
+          var found = false;
+          for (var i = 0; i < extensions.length; i++)
+          {
+              if (extensions[i] == ext) found = true;
+          }
+  
+          // Our extension isn't found, throw a error.
+          if (!found) return false;
+      }
+      
+      // check the max upload size
+      if (field.maxsize)
+      {
+          // calculate the byte size the max size in kilobytes
+          var maxBytes = field.maxsize * 1024;
+          
+          // do we exceed the maximum upload size?
+          if (uploadElement.files.length > 0 && uploadElement.files[0].size > maxBytes) return false
+      }
+  
+      // The file is correct.
+      return true;
+  }
+  
+  /**
+   *  Change the format of the date from  or to yyyy-mm-dd.
+   *  Use the to parameter to select the date format destination.
+   *  @param string
+   *  @param string
+   *  @return string
+   */
+  function webform_convert_date(date, to)
+  {
+      // If there is no date provided, then there is nothing to do.
+      if (date == "") return "";
+  
+      // The use regular expressions.
+      var english = /^((19|20)\d\d)([- /.])(0[0-9]|1[012]|[0-9])[- /.]([1-9]|[012][0-9]|3[01])(\s+[012]?[0-9]:[0-5]?[0-9])?$/;
+      var europe = /^([1-9]|[012][0-9]|3[01])([- /.])(0[0-9]|1[012]|[0-9])[- /.]((19|20)\d\d)(\s+[012]?[0-9]:[0-5]?[0-9])?$/;
+  
+      // The working variables.
+      var matches = false;
+      var year = 0;
+      var month = 0;
+      var day = 0;
+      var separator = "-";
+  
+      // Is the source in europian style? DD-MM-YY
+      if (matches = date.match(europe))
+      {
+          year = matches[4];
+          separator = matches[2];
+          month = matches[3];
+          day = matches[1];
+      }
+      else if(matches = date.match(english))
+      {
+          year = matches[1];
+          separator = matches[3];
+          month = matches[4];
+          day = matches[5];
+      }
+  
+      switch (to)
+      {
+          case "english":
+              return year+separator+month+separator+day;
+          default:
+              return day+separator+month+separator+year;
+      }
+  }
+  
+  /**
+   *  Save the selected date to the hidden field.
+   *  @param string
+   *  @return string
+   */
+  function recalculateDate(identifier)
+  {
+      var separator = "-";
+  
+      // calculate the year
+      var yearEl = document.getElementById(identifier+'_year');
+      var selectIndex = yearEl.selectedIndex;
+      var year = yearEl.options[selectIndex].text;
+  
+      // calculate the month
+      var monthEl = document.getElementById(identifier+'_month');
+      var selectIndex = monthEl.selectedIndex;
+      var month = monthEl.options[selectIndex].text;
+  
+      // calculate the day
+      var dayEl = document.getElementById(identifier+'_day');
+      var selectIndex = dayEl.selectedIndex;
+      var day = dayEl.options[selectIndex].text;
+  
+      // concat the date
+      document.getElementById(identifier).value = year+separator+month+separator+day;
+  }
+  
+  /**
+   *  Save the selected Time to the hidden field
+   *  @param string
+   *  @return string
+   */
+  function recalculateDateTime(identifier)
+  {
+      // calculate the year
+      var yearEl = document.getElementById(identifier+'_year');
+      var selectIndex = yearEl.selectedIndex;
+      var year = yearEl.options[selectIndex].text;
+  
+      // calculate the month
+      var monthEl = document.getElementById(identifier+'_month');
+      var selectIndex = monthEl.selectedIndex;
+      var month = monthEl.options[selectIndex].text;
+  
+      // calculate the day
+      var dayEl = document.getElementById(identifier+'_day');
+      var selectIndex = dayEl.selectedIndex;
+      var day = dayEl.options[selectIndex].text;
+  
+      // calculate the hour
+      var hourEl = document.getElementById(identifier+'_hour');
+      var selectedIndex = hourEl.selectedIndex;
+      var hour = hourEl.options[selectedIndex].text;
+  
+      // calculate the minute
+      var minuteEl = document.getElementById(identifier+'_minute');
+      var selectedIndex = minuteEl.selectedIndex;
+      var minute = minuteEl.options[selectedIndex].text;
+  
+      // concat the datetime, add ':00' at the end in order to fit the SQL datetime format
+      document.getElementById(identifier).value = year + "-" + month + "-" + day + " " + hour + ":" + minute + ":00";
+  }
+  
+  /**
+   *  Remove the whitespace left and right from the value.
+   *  @param string to trim
+   *  @return string
+   */
+  function webform_trim_value(value)
+  {
+      // First replace the whitespace on the left and right with nothing.
+      return value.replace(/^\s+/g,'').replace(/\s+$/g, '');
+  }
+  </script>
+
+<script type="text/javascript">
+
+  // initialize the webform
+  initWebform("2", {"0913320b68944ba516bf347f09bc3388":{"key":false,"required":false,"field":"EM_Frequency","label":"Nieuwsbrief frequentie","type":"radio_buttons","casesensitive":false,"regex":""},"b66d526119acbb20fee70b402caa4111":{"key":false,"required":false,"field":"EM_Pauze_tot","label":"Tijdelijke pauze","type":"radio_buttons","casesensitive":false,"regex":""},"2aa2300cd8f95d94df63b39372660df5":{"key":false,"required":false,"field":"Status","label":"Status","type":"hidden","casesensitive":false,"regex":""},"48e4bd688d625ff7caad8ca84ab3c81c":{"key":true,"required":true,"field":"Email","label":"Emailadres","type":"hidden","casesensitive":true,"regex":""}});
+  
+  </script>
