@@ -162,7 +162,7 @@ img {
 }
 
 .main {
-  padding: 48px 0;
+  padding: 24px 0 48px;
   -webkit-box-flex: 1;
       -ms-flex: 1 0;
           flex: 1 0;
