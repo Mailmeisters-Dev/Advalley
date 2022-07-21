@@ -155,10 +155,15 @@ img {
 }
 
 .header__logo {
-  width: 90px;
-  display: block;
-  margin-left: 56px;
-  margin-top: 24px;
+  background-color: #1a1e1e;
+  width: 100%;
+  padding-left: 56px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.header__logo .logo {
+  height: 56px;
 }
 
 .main {
