@@ -1,0 +1,191 @@
+{{ cssPrefix }} .sqzly-hidden {
+  display: none !important;
+}
+
+{{ cssPrefix }} .sqzly-modal {
+  padding: 0;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}
+{{ cssPrefix }} .sqzly-newsletter-container {
+  background-color: #fff;
+  padding: 54px 0 20px 0;
+  border-radius: 8px;
+}
+{{ cssPrefix}} .sqzly-logo {
+  position: absolute;
+  width: 77px;
+  left: 20px;
+  top: 20px;
+}
+{{ cssPrefix }} .sqzly-modal-content {
+  text-align: center;
+}
+{{ cssPrefix }} h3 {
+  font-family: Recoleta, serif;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 38px;
+  margin-bottom: 16px;
+}
+
+{{ cssPrefix }} .sqzly-usp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 6px;
+}
+{{ cssPrefix }} .sqzly-usp-img {
+  width: 16px;
+  height: 16px;
+  color: #11B89A;
+  margin: 0;
+}
+{{ cssPrefix }} .sqzly-usp-text {
+  margin-left: 8px;
+}
+{{ cssPrefix }} .sqzly-fields {
+  max-width: 500px;
+  margin: 0 auto;
+  padding-top: 16px;
+}
+
+{{ cssPrefix }} .sqzly-emailfield {
+  height: 48px;
+  padding: 0 12px;
+  border: 1px solid #BEC0C0;
+  border-radius:8px;
+  color: #A3A5A5;
+  margin: 0 0 12px 0;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+{{ cssPrefix }} .sqzly-emailfield::placeholder {
+  color: #A3A5A5;
+}
+
+{{ cssPrefix }} .sqzly-btn {
+  height: 48px;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 48px;
+  padding: 0;
+}
+
+{{ cssPrefix }} .sqzly-btn::after {
+  content: url(https://app.squeezely.tech/uploads/prod/personalization/62e132d09efdb.png);
+  width: 16px;
+  margin-left: 8px;
+}
+
+{{ cssPrefix }} .sqzly-logos-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 27px;
+  margin-top: 32px;
+}
+
+{{ cssPrefix }} .logo-hilton {
+  width: 70px;
+  height: 52px;
+}
+
+{{ cssPrefix }} .logo-doubletree {
+  width: 81px;
+  height: 54px;
+} 
+
+{{ cssPrefix }} .logo-marriot {
+  width: 87px;
+  height: 46px;
+}
+
+{{ cssPrefix }} .logo-landgoed {
+  width: 77px;
+  height: 62px;
+}
+
+{{ cssPrefix }} .logo-bilderberg {
+  width: 88px;
+  height: 47px;
+}
+
+{{ cssPrefix }} .logo-crowneplaza {
+  width: 108px;
+  height: 42px;
+}
+
+{{ cssPrefix }} .sqzly-social-proof {
+  margin-top: 22px;
+}
+
+{{ cssPrefix }} .sqzly-privacy-conditions {
+  padding-top: 17px;
+  color: #00000099;
+  font-size: 12px;
+  line-height: 14px;
+}
+{{ cssPrefix }} .sqzly-privacy-conditions a {
+  color: #00000099;
+}
+{{ cssPrefix }} .sqzly-trustpilot-container {
+  background-color: #FFF;
+  border-radius: 8px;
+  margin-top: 16px;
+}
+{{cssPrefix }} .sqzly-trustpilot-top-bar {
+  background-color: #1A1E1E;
+  border-radius: 8px 8px 0 0;
+  padding: 8px 24px;
+  display: flex;
+  align-items: center;
+  color: #FFF;
+}
+{{ cssPrefix }} .sqzly-trustpilot-stars {
+  width: 151px;
+}
+{{ cssPrefix }} .sqzly-trustpilot-reviews {
+  font-size: 14px;
+  font-weight: 700;
+  margin-left: 120px;
+  width: 100%;
+}
+{{ cssPrefix }} .sqzly-trustpilot-lhc {
+  font-size: 12px;
+  text-align: right;
+  width: 100%;
+}
+{{ cssPrefix }} .sqzly-trustpilot-review-bar {
+  color: #000000;
+  display: flex;
+  padding: 16px;
+}
+{{ cssPrefix }} .sqzly-trustpilot-review-person {
+  background-color: rgba(0, 182, 122, 0.1);
+  padding: 16px 0 24px;
+  border-radius: 8px;
+  flex: 0 0 210px;
+  margin-right: 24px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+}
+{{ cssPrefix }} .sqzly-trustpilot-review-image {
+  width: 40px;
+  margin-bottom: 11px;
+}
+{{ cssPrefix }} .sqzly-trustpilot-review-stars {
+ width: 90px;
+ margin-top: 6px;
+}
+{{ cssPrefix }} .sqzly-trustpilot-review-title {
+  font-size: 18px;
+  font-weight: 700;
+  padding: 12px 0 8px 0;
+}
+{{ cssPrefix }} .sqzly-trustpilot-review-text {
+  max-width: 340px;
+}

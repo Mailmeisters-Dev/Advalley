@@ -8,6 +8,26 @@
   src: url(https://vialuxury.com/fonts/GT-Flexa-Standard-Black.otf);
 }
 
+@font-face {
+  font-family: Recoleta;
+  src: url(https://vialuxury.com/fonts/recoleta-regular.woff);
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Recoleta;
+  src: url(https://vialuxury.com/fonts/recoleta-semi-bold.woff);
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Recoleta;
+  src: url(https://vialuxury.com/fonts/recoleta-bold.woff);
+  font-weight: 700;
+  font-style: normal;
+}
 
 body {
   margin: 0;
