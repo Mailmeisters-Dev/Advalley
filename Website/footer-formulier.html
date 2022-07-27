@@ -1,0 +1,148 @@
+<div class="footer-newsletter-container">
+  <div class="newsletter-title">
+    <div class="m-inline">
+      Ontvang tot wel 70% korting
+    </div>
+    <div class="m-inline">
+      op de mooiste hotels
+    </div>
+  </div>
+  <div class="newsletter-subtitle">
+    Schrijf je in voor de nieuwsbrief
+  </div>
+  <div class="newsletter-form">
+    <form method="post" enctype="multipart/form-data" action="https://unsubscribe.vialuxury.com/?webform=3" name="webform_3">
+      <div class="webform form" id="webform_3">
+        <div class="form-column w-280" id="field_b97a50f8e6ad986a06bb068a6bf16b7a">
+          <input class="email" type="text" id="b97a50f8e6ad986a06bb068a6bf16b7a" name="b97a50f8e6ad986a06bb068a6bf16b7a" placeholder="jouw@emailadres.nl">
+        </div>
+        <div class="hidden" id="field_3dc742cf1bac7a78a3b795670bbfac33">
+          <input class="hidden" type="hidden" id="3dc742cf1bac7a78a3b795670bbfac33" name="3dc742cf1bac7a78a3b795670bbfac33" value="FooterForm">
+        </div>
+        <div class="hidden" id="field_358d714d1069d1d7ae19e27e867ccb6a">
+          <input class="hidden" type="hidden" id="358d714d1069d1d7ae19e27e867ccb6a" name="358d714d1069d1d7ae19e27e867ccb6a" value="Subscribed">
+        </div>
+        <div class="form-column">
+          <input class="submit" type="submit" value="Inschrijven">
+        </div>
+      </div>
+      <div class="form-error-message hide">
+        Vul een geldig e-mailadres in
+      </div>
+    </form>
+  </div>
+</div>
+
+<style type="text/css">
+  .footer-newsletter-container {
+    padding-top: 57px;
+    padding-left: 80px;
+  }
+  .newsletter-title {
+    font-family: Recoleta ,serif;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 27px;
+    color: #FFFDEB;
+    margin-bottom: 8px;
+  }
+  .newsletter-subtitle {
+    font-family: BasisGrotesque,sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    color: #FFFDEB;
+    margin-bottom: 12px;
+  }
+  .footer-newsletter-container .form {
+    display: flex;
+    align-items: center;
+  }
+  .footer-newsletter-container .w-280 {
+    flex: 0 1 280px;
+  }
+  .footer-newsletter-container .email, .footer-newsletter-container .submit {
+    border: none;
+    height: 56px;
+    font-size: 16px;
+    line-height: 21px;
+  }
+  .footer-newsletter-container .email {
+    background-color: rgba(0,0,0,0.2);
+    color: #FFFDEB;
+    padding: 0 16px;
+    width: 100%;
+  }
+  .footer-newsletter-container .email::placeholder {
+    color: #FFFDEB;
+  }
+  .footer-newsletter-container .submit {
+    background-color: #1A1E1E;
+    color: #FFFDEB;
+    padding: 0 20px;
+  }
+  .footer-newsletter-container .form-error-message {
+    color: red;
+    font-size: 13px;
+  }
+
+  @media (max-width: 768px) {
+    .footer-newsletter-container {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    .m-inline {
+      display: inline;
+    }
+    .footer-newsletter-container .w-280 {
+      flex: 0 1 100%;
+    }
+  }
+</style>
+
+
+<script type="text/javascript">
+  /**
+   *  Script for webforms.
+   */
+  
+  function initWebform(webformID) {
+
+      // register a handler for the form
+      var formname = 'webform_'+webformID;
+  
+      // get a form element
+      var form = document.forms[formname];
+      
+      // Error message and submit button
+      var formErrorMessage = form.querySelector('.form-error-message');
+      var formSubmitButton = form.querySelector('.submit');
+
+      // Check if email is valid on form submit
+      formSubmitButton.addEventListener('click', function(event) {
+      
+        // Does email match pattern?
+        var formEmailField = form.querySelector('.email').value;
+        var formRequiredEmail = /\S+@\S+\.\S+/;
+        var formValidateEmail = formRequiredEmail.test(formEmailField);
+          
+        // If not valid show error message, else return true
+        if (formValidateEmail == false) {
+
+          event.preventDefault();
+
+          formErrorMessage.setAttribute('class', 'form-error-message');
+
+        } else {
+
+          return true;
+
+        }
+
+      });
+
+  };
+
+  initWebform("3");
+
+</script>
