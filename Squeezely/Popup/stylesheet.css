@@ -80,7 +80,7 @@
   margin-left: 8px;
 }
 
-{{ cssPrefix }} .sqzly-logos-container {
+{{ cssPrefix }} .sqzly-hotel-logos-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -188,4 +188,41 @@
 }
 {{ cssPrefix }} .sqzly-trustpilot-review-text {
   max-width: 340px;
+}
+
+@media (max-width: 768px) {
+  {{ cssPrefix }} .sqzly-modal {
+    top: 20px;
+    left: 50%;
+    right: 20px;
+    bottom: 20px;
+    max-width: 540px;
+    transform: translate(-50%, 0);
+  }
+  {{ cssPrefix }} .sqzly-newsletter-container {
+    padding: 24px 24px 16px 24px;
+  }
+  {{ cssPrefix }} .sqzly-logo {
+    position: relative;
+    top: auto;
+    left: auto;
+    margin: 0 auto;
+    margin-bottom: 18px;
+  }
+  {{ cssPrefix }} h3 {
+    margin-bottom: 24px;
+    font-size: 28px;
+    line-height: 32px;
+  }
+  {{ cssPrefix }} .sqzly-fields {
+    margin: 0 20px;
+  }
+  {{ cssPrefix}} .sqzly-hotel-logos-container {
+    flex-wrap: wrap;
+    gap: 0;
+  }
+
+  {{ cssPrefix }} .sqzly-hotel-logo {
+    width: 33%
+  }
 }

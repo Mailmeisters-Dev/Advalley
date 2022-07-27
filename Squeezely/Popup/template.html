@@ -34,7 +34,6 @@
     {{ cssPrefix }} .sqzly-modal.sqzl-update { animation: none; }
     {{ cssPrefix }} .sqzly-modal.sqzly-image-left,
     .sqzly-modal.sqzly-image-right { min-width: 300px; max-width: 600px }
-    {{ cssPrefix }} .sqzly-modal h3 { font-size: 22px; border: 0px; }
     {{ cssPrefix }} .sqzly-modal-image { height: 180px; background-position: center; background-repeat: no-repeat; background-size: contain; }
     {{ cssPrefix }} .sqzly-modal-image.sqzly-modal-image-placeholder { background-color: #CED4D7; height: 130px; border-radius: 4px; }
     {{ cssPrefix }} .sqzly-image-left .sqzly-modal-image { width: 150px; float: left; margin-bottom: 0px; }
@@ -90,7 +89,6 @@
             -webkit-box-shadow: none;
             padding-left: 0px;
         }
-        {{ cssPrefix }} .sqzly-modal h3 { font-size: 16px; }
 
         {{ cssPrefix }} .sqzly-image-left .sqzly-modal-image,
         {{ cssPrefix }} .sqzly-image-right .sqzly-modal-image,
@@ -225,13 +223,25 @@
                         <div class="sqzly-form-submit sqzly-btn {% if elements.button.full_width %}sqzly-btn-fullwidth{% endif %}">{% if parsedItem.button %}{{ parsedItem.button }}{% else %}CTA text{% endif %}</div>
                     </div>
 
-                    <div class="sqzly-logos-container">
-                      <img src="https://app.squeezely.tech/uploads/prod/personalization/62e136986dce9.jpg" alt="Hilton" class="logo-hilton">
-                      <img src="https://app.squeezely.tech/uploads/prod/personalization/62e136a209706.png" alt="Double Tree" class="logo-doubletree">
-                      <img src="https://app.squeezely.tech/uploads/prod/personalization/62e136aa3f497.png" alt="Marriot" class="logo-marriot">
-                      <img src="https://app.squeezely.tech/uploads/prod/personalization/62e136b104f46.png" alt="Langoed Duin & Kruidberg" class="logo-landgoed">
-                      <img src="https://app.squeezely.tech/uploads/prod/personalization/62e136b861681.png" alt="Bilderberg" class="logo-bilderberg">
-                      <img src="https://app.squeezely.tech/uploads/prod/personalization/62e136c06fe3f.png" alt="Crowne Plaza" class="logo-crowneplaza">
+                    <div class="sqzly-hotel-logos-container">
+                      <div class="sqzly-hotel-logo">
+                        <img src="https://app.squeezely.tech/uploads/prod/personalization/62e136986dce9.jpg" alt="Hilton" class="logo-hilton">
+                      </div>
+                      <div class="sqzly-hotel-logo">
+                        <img src="https://app.squeezely.tech/uploads/prod/personalization/62e136a209706.png" alt="Double Tree" class="logo-doubletree">
+                      </div>
+                      <div class="sqzly-hotel-logo">
+                        <img src="https://app.squeezely.tech/uploads/prod/personalization/62e136aa3f497.png" alt="Marriot" class="logo-marriot">
+                      </div>
+                      <div class="sqzly-hotel-logo">
+                        <img src="https://app.squeezely.tech/uploads/prod/personalization/62e136b104f46.png" alt="Langoed Duin & Kruidberg" class="logo-landgoed">
+                     </div>
+                      <div class="sqzly-hotel-logo">
+                        <img src="https://app.squeezely.tech/uploads/prod/personalization/62e136b861681.png" alt="Bilderberg" class="logo-bilderberg">
+                      </div>
+                      <div class="sqzly-hotel-logo">
+                        <img src="https://app.squeezely.tech/uploads/prod/personalization/62e136c06fe3f.png" alt="Crowne Plaza" class="logo-crowneplaza">
+                      </div>
                     </div>
 
                     <div class="sqzly-social-proof">
