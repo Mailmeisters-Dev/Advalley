@@ -194,7 +194,6 @@
   {{ cssPrefix }} .sqzly-modal {
     top: 20px;
     left: 50%;
-    right: 20px;
     bottom: 20px;
     max-width: 540px;
     transform: translate(-50%, 0);
@@ -214,9 +213,6 @@
     font-size: 28px;
     line-height: 32px;
   }
-  {{ cssPrefix }} .sqzly-fields {
-    margin: 0 20px;
-  }
   {{ cssPrefix}} .sqzly-hotel-logos-container {
     flex-wrap: wrap;
     gap: 0;
@@ -224,5 +220,12 @@
 
   {{ cssPrefix }} .sqzly-hotel-logo {
     width: 33%
+  }
+}
+@media (max-width: 450px) {
+  {{ cssPrefix }} .sqzly-modal {
+    left: 20px;
+    right: 20px;
+    transform: none;
   }
 }
